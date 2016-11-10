@@ -1,0 +1,125 @@
+<?php 
+$missions = file_get_contents("missionsCount.txt");
+?>
+<section id="theproject">
+    <h2 class="first-line">{{ titre_de_la_zone_programme }}</h2>
+    <div class="stats">
+        <div class="stat">
+            <p class="spotlight">?</p>
+            <p class="spotlight-subtitle">{{ label_contributeurs }}</p>
+        </div>
+        <div class="stat">
+            <p class="spotlight" id="nb-missions"><?php echo $missions;?></p>
+            <p class="spotlight-subtitle">{{ label_missions }}</p>
+        </div>
+        <div class="stat">
+            <p class="spotlight" id="nb-specimens">?</p>
+            <p class="spotlight-subtitle">{{ label_specimens }}</p>
+        </div>
+    </div>
+    <p class="first-line summary">{{ resume_de_la_zone_programme }}</p>
+    <ul class="first-line link-list orange">
+        <li><a class="link" href="{{ lien_vers_la_page_programme }}">{{ label_du_lien_vers_la_page_programme }}</a></li>
+        <li><a class="link" href="{{ lien_vers_la_page_chiffres }}">{{ label_du_lien_vers_la_page_chiffres }}</a></li>
+    </ul>
+</section>
+<script>
+$.ajax({
+    type: 'GET',
+    headers: {},
+    url: 'https://api.recolnat.org/erecolnat/v1/specimens/count',
+    success: function (data) {
+        document.getElementById("nb-specimens").innerHTML = data.toLocaleString('fr-FR');
+    }
+});
+
+/*
+$.ajax({
+    type: 'GET',
+    headers: {},
+    url: 'http://lesherbonautes.mnhn.fr/api/getAllMissions',
+    success: function (missionList) {
+	console.log(missionList);
+        document.getElementById("nb-missions").innerHTML = missionList.length;
+    }
+});
+*/
+</script>
+<section id="explorecollections" class="rslides_container contains-v-centered-elements">
+    <ul class="rslides">
+        {{ collection:belles-images scope="bp" }}
+        {{ assets:picture }}
+        <li style="background-image: url('{{ url }}');">
+            <a class="explore-content" href="{{ explore_lien }}">{{ bp:title }}</a>
+        </li>
+        {{ /assets:picture }}
+        {{ /collection:belles-images }}
+    </ul>
+</section>
+<section id="news" class="small-insert">
+    {{ collection:news scope="news" limit="1" }}    
+    <h2 class="first-line">{{ titre_de_la_zone_actualites }}</h2>
+    <p class="post-date">{{ date }}</p>
+    <p class="post-title"><a href="/actualites#{{ title }}">{{ title }}</a></p>
+    <div class="post-summary"><a href="/actualites#{{ title }}">{{ content | safe_truncate:100:... }}</a></div>
+    <ul class="first-line link-list orange">
+        <li><a class="link" href="{{ lien_vers_toutes_les_actualites }}">{{ label_du_lien_vers_toutes_les_actualites }}</a></li>
+    </ul>    
+    {{ /collection:news }}
+</section>
+<section id="contribute" class="contains-v-centered-elements">
+    <div class="botanic-insert">
+        <p class="hashtag first-line">#{{ hashtag_de_la_zone_botanique }}</p>
+        <h2>{{ titre_de_la_zone_botanique }}</h2>
+        <ul class="link-list orange">
+            <li><a href="{{ lien_vers_loutils_qualite }}">{{ label_du_lien_vers_loutils_qualite }}</a></li>
+            <li><a href="{{ lien_vers_les_herbonautes }}">{{ label_du_lien_vers_les_herbonautes }}</a></li>
+        </ul>
+    </div>
+</section>
+<section id="lab" class="contains-v-centered-elements">
+    <div class="botanic-insert">
+        <h2>{{ titre_de_la_zone_laboratoire }}</h2>
+        <ul class="link-list orange">
+            <li><a href="{{ lien_vers_le_collaboratoire }}">{{ label_du_lien_vers_le_collaboratoire }}</a></li>
+        </ul>
+    </div>
+</section>
+<section id="partners">
+    <h2>{{ titre_de_la_zone_membres_partenaires_projets }}</h2>
+    <ul class="link-list orange first-line">
+        <li><a href="{{ lien_vers_nos_membres }}">{{ label_du_lien_vers_nos_membres }}</a></li>
+        <li><a href="{{ lien_vers_nos_partenaires }}">{{ label_du_lien_vers_nos_partenaires }}</a></li>
+        <li><a href="{{ lien_vers_nos_projets }}">{{ label_du_lien_vers_nos_projets }}</a></li>
+        <li><a href="{{ lien_faire_un_don }}">{{ label_du_lien_faire_un_don }}</a></li>
+    </ul>
+    <div>
+        {{ collection:membres scope="m" }}
+        {{ assets:logo }}
+        <a href="{{ lien_vers_nos_membres }}#{{ title }}"><img src="{{ url }}" alt="{{ m:title }}"/></a>
+        {{ /assets:logo }}
+        {{ /collection:membres }}
+    </div>    
+</section>
+<section id="map" class="contains-v-centered-elements">
+    <div class="botanic-insert">
+        <p class="hashtag first-line">#{{ hashtag_de_la_zone_des_collections }}</p>
+        <h2>{{ titre_de_la_zone_des_collections}}</h2>
+        <ul class="link-list orange">
+            <li><a href="{{ lien_vers_les_collections_botaniques }}">{{ label_du_lien_vers_les_collections_botaniques }}</a></li>
+            <li><a href="{{ lien_vers_les_collections_zoologiques }}">{{ label_du_lien_vers_les_collections_zoologiques }}</a></li>
+            <li><a href="{{ lien_vers_les_collections_paletontologiques }}">{{ label_du_lien_vers_les_collections_paletontologiques }}</a></li>
+        </ul>
+    </div>
+</section>
+<section id="colhelper">
+    <!-- <a href="{{ colhelper_lien }}"><h2>Demander un spécimen</h2></a> -->
+</section>
+<section id="contact" class="small-insert">
+    <h2 class="first-line">{{ titre_de_la_zone_contact }}</h2>
+    <ul class="link-list white">
+        <li><a href="{{ lien_vers_les_contributeurs }}">{{ label_du_lien_vers_les_contributeurs }}</a></li>
+        <li><a href="{{ lien_vers_les_questions }}">{{ label_du_lien_vers_les_questions }}</a></li>
+    </ul>
+    <p>{{ email_de_contact }}</p>
+</section>

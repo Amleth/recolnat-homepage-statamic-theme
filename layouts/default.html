@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portail du projet e-ReColNat">
+    <title>{{ title ensure_right=" / " }}{{ site_name }}</title>
+    <script src="//code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="{{ theme:js }}"></script>
+    <link rel="stylesheet" href="{{ theme:css }}">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<iframe id="recolnatMenu" class="recolnat-menu" seamless="seamless" scrolling="no" src="https://wp5test.recolnat.org/menu/"></iframe>
+<div id="content">
+{{ template_content }}
+</div>
+
+<footer class="row">
+{{ get_content from="/" }}
+    <ul>
+        <li>
+            <h3><a href="{{ lien_vers_la_page_programme }}">{{ footer_titre_le_programme }}</a></h3>
+            <p>{{ footer_resume_du_programme }}</p>
+            <ul class="link-list orange">
+                <li><a href="{{ footer_lien_mentions_legales }}">{{ footer_label_du_lien_mentions_legales }}</a></li>
+            </ul>
+        </li>
+        <li>
+            <h3>{{ footer_titre_de_la_liste_des_outils }}</h3>
+            <ul id="tool-list">
+                <li><a target="_blank" href="{{ lien_vers_loutils_explore }}">{{ titre_de_loutils_explore }}</a></li>
+                <li><a target="_blank" href="{{ lien_vers_les_herbonautes }}">{{ titre_de_loutils_herbonautes }}</a></li>
+                <li><a target="_blank" href="{{ lien_vers_loutils_qualite }}">{{ titre_de_loutils_qualite }}</a></li>
+                <li><a target="_blank" href="{{ lien_vers_le_collaboratoire }}">{{ titre_de_loutils_collaboratoire }}</a></li>
+                <li><a target="_blank" href="{{ lien_vers_loutils_coel }}">{{ titre_de_loutils_coel }}</a></li>
+                <li><a target="_blank" href="{{ lien_vers_loutils_colhelper }}">{{ titre_de_loutils_colhelper }}</a></li>
+            </ul>
+        </li>
+        <li>
+            <h3><a href="{{ footer_lien_vers_la_liste_des_collections }}">{{ footer_titre_de_la_liste_des_collections }}</a></h3>
+            <ul>
+            {{ collection:collections limit="5" }}    
+                <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
+            {{ /collection:collections }}
+            </ul>
+        </li>
+        <li>
+            <h3><a href="{{ footer_lien_vers_la_liste_des_publications_scientifiques }}">{{ footer_titre_de_la_liste_des_publications_scientifiques }}</a></h3>
+            <ul>
+            {{ collection:publications limit="2" }}    
+                <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
+            {{ /collection:publications }}
+            </ul>
+
+            <h3><a href="{{ footer_lien_vers_la_liste_des_articles_de_presse }}">{{ footer_titre_de_la_liste_des_articles_de_presse }}</a></h3>
+        </li>
+    </ul>
+    <section id="report">
+        <a href="{{ footer_lien_vers_le_rapport_dactivite }}"><h4>{{ footer_label_du_lien_vers_le_rapport_dactivite }}</h4></a>
+    </section>
+{{ /get_content }}
+</footer>
+
+<script>
+'use strict';
+
+var userLoggedIn = false;
+
+var mainReady = false;
+var iframeReady = false;
+
+$(function () {
+    mainReady = true;
+    init();
+});
+
+$('#recolnatMenu').bind('load', function() {
+    iframeReady = true;
+    init();
+});
+
+var click_loginButton = function() {
+    window.location.replace("https://cas.recolnat.org/login?service=" + [location.protocol, '//', location.host, location.pathname].join(''));
+};
+
+function init() {
+    if(!mainReady || !iframeReady) return;
+    $('#recolnatMenu').contents().find('li.button a').first().click(click_loginButton);
+
+    var cc = Cookies.get('CASTGC');
+    console.log('COOKIE:', cc);
+    if (cc == undefined) {
+        userLoggedIn = false;
+        updateLoginView(userLoggedIn);
+        return;
+    }
+    
+    $.post({
+      url: 'https://cas.recolnat.org/v1/tickets/' + cc,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      data: {service: 'http://wp5test.recolnat.org'},
+      success: function (data) {
+        var ticket = data;
+        console.log('TICKET:', ticket);
+        $.post({
+            url: 'https://cas.recolnat.org/serviceValidate',
+            data: { ticket: ticket, service: "http://wp5test.recolnat.org" },
+            success: function (xml, status, xhr) {
+            		var user = '';
+            		if(xml.getElementsByTagName('cas:user').length == 0) {
+            			user = xml.getElementsByTagName('user')[0].firstChild.nodeValue;
+            		}
+            		else {
+            			user = xml.getElementsByTagName('cas:user')[0].firstChild.nodeValue;
+            		}   
+                console.log('CAS USER:', user);
+                $.get({
+                    url: 'https://api.recolnat.org/erecolnat/v1/users/login/' + user,
+                    success: function (data) {
+                        userLoggedIn = true;
+                        console.log('USER DATA:', data.email, data.user_uuid);
+                        updateLoginView(userLoggedIn, user);
+                    }
+                });
+            }
+        });
+      }
+    });
+}
+
+function updateLoginView(loggedIn, user) {
+    $('#recolnatMenu').contents().find('li.button a').first().text(loggedIn ? 'Bienvenue, ' + user : 'Me connecter');
+}
+</script>
+
+</body>
+</html>

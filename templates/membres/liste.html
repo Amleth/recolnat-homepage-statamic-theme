@@ -1,0 +1,18 @@
+<main class="page membres">
+<h1>Membres fondateurs du programme eReColNat</h1>
+
+
+{{ collection:membres scope="m" }}
+<section>
+{{ assets:logo }}
+<a name="{{ title }}"></a>
+<a class="logo" href="{{ m:url }}"><img src="{{ url }}" alt="{{ m:title }}" /></a>
+{{ /assets:logo }}
+
+<h2>{{ title }}</h2>
+<p class="chapeau">{{ chapeau }}</p>
+<hr />
+{{ content }}
+</section>
+{{ /collection:membres }}
+</main>

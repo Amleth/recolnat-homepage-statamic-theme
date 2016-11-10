@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "devDependencies": {
+    "cookie": "^0.3.1",
+    "gulp": "*",
+    "gulp-watch": "^4.3.5",
+    "jquery": "^3.1.1",
+    "js-cookie": "^2.1.3",
+    "laravel-elixir": "*",
+    "laravel-elixir-remove": "^0.2.1",
+    "normalizecss": "^3.0.0",
+    "superagent": "git+https://git@github.com/visionmedia/superagent.git",
+    "xml-parser": "^1.2.1"
+  }
+}

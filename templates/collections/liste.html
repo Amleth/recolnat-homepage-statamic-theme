@@ -1,0 +1,17 @@
+<main class="page">
+<h1>Liste des collections naturalistes</h1>
+
+{{ collection:collections as="c" limit="50" paginate="true" }}
+	<section>
+		<ul class="link-list orange">
+		{{ c }}
+	    	<li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
+		{{ /c }}
+		</ul>
+	</section>
+	{{ paginate }}
+		{{ auto_links }}        
+	{{ /paginate }}
+
+{{ /collection:collections }}
+</main>

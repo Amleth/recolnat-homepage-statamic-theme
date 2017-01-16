@@ -3,8 +3,12 @@
 {{ /assets:en_tete }}
 
 <article class="page">
+	{{ assets:logo }}
+  	<img src="{{ url }}" class="logopartenaire" />
+	{{ /assets:logo }}
 	<h1>{{ title }}</h1>
-	<p class="chapeau">{{ chapeau }}</p>
+	<p class="chapeau">{{ chapeau }}
+	</p>
 	<hr />
 	<main>{{ content }}</main>
 </article>

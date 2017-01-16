@@ -640,6 +640,9 @@ nav {
     padding-bottom: 20px;
     font-size: 16px;
     font-family: "ikaros_sansregular"; }
+  .page .logopartenaire {
+    float: right;
+    margin: 50px; }
   .page .chapeau {
     font-style: italic; }
   .page .link-list {

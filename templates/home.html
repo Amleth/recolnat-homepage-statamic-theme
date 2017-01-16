@@ -57,9 +57,9 @@ $.ajax({
     </ul>
 </section>
 <section id="news" class="small-insert">
-    {{ collection:news scope="news" limit="1" }}    
+    {{ collection:news scope="news" limit="1" }}
     <h2 class="first-line">{{ titre_de_la_zone_actualites }}</h2>
-    <p class="post-date">{{ date }}</p>
+    <p class="post-date">{{ date format="l j F Y" }}</p>
     <p class="post-title"><a href="/actualites#{{ title }}">{{ title }}</a></p>
     <div class="post-summary"><a href="/actualites#{{ title }}">{{ content | safe_truncate:100:... }}</a></div>
     <ul class="first-line link-list orange">

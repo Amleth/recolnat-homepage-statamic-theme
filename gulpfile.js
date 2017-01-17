@@ -22,7 +22,6 @@ elixir(function (mix) {
   mix.scripts([
       'js/responsiveslides.min.js',
       'js/src-erecolnat.js',
-      '../node_modules/superagent/superagent.js',
       '../node_modules/js-cookie/src/js.cookie.js',
     ],
     './js/erecolnat.js'

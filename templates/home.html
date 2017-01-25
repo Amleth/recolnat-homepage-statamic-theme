@@ -1,19 +1,16 @@
-<?php 
-$missions = file_get_contents("missionsCount.txt");
-?>
 <section id="theproject">
     <h2 class="first-line">{{ titre_de_la_zone_programme }}</h2>
     <div class="stats">
         <div class="stat">
-            <p class="spotlight">?</p>
+            <p class="spotlight">...</p>
             <p class="spotlight-subtitle">{{ label_contributeurs }}</p>
         </div>
         <div class="stat">
-            <p class="spotlight" id="nb-missions"><?php echo $missions;?></p>
+            <p class="spotlight" id="nb-missions">...</p>
             <p class="spotlight-subtitle">{{ label_missions }}</p>
         </div>
         <div class="stat">
-            <p class="spotlight" id="nb-specimens">?</p>
+            <p class="spotlight" id="nb-specimens">...</p>
             <p class="spotlight-subtitle">{{ label_specimens }}</p>
         </div>
     </div>
@@ -30,6 +27,15 @@ $.ajax({
     url: 'https://api.recolnat.org/erecolnat/v1/specimens/count',
     success: function (data) {
         document.getElementById("nb-specimens").innerHTML = data.toLocaleString('fr-FR');
+    }
+});
+
+$.ajax({
+    type: 'GET',
+    headers: {},
+    url: 'missionsCount.txt',
+    success: function (data) {
+        document.getElementById("nb-missions").innerHTML = data;
     }
 });
 

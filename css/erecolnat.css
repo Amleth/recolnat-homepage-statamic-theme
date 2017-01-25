@@ -742,14 +742,14 @@ div#content > section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
-  #lab h1, #lab h2 {
-    margin-top: 40px; }
 
 #partners {
   background-color: #FFFCF7;
   height: 350px;
   width: 100%;
   color: #191919; }
+  #partners h1, #partners h2 {
+    margin-top: 40px; }
   #partners h1, #partners h2, #partners h3, #partners div {
     margin-left: 30px; }
   #partners ul {
@@ -839,6 +839,8 @@ ul.rslides > li > .explore-content {
   height: 43%;
   background-color: #fffcf7;
   background-color: rgba(255, 252, 247, 0.9); }
+  .botanic-insert h1, .botanic-insert h2 {
+    margin-top: 40px; }
   .botanic-insert .hashtag, .botanic-insert h2, .botanic-insert h3, .botanic-insert p {
     padding-left: 20px;
     padding-right: 20px; }

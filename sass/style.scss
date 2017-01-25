@@ -474,10 +474,6 @@ div#content > section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-
-  h1, h2 {
-    margin-top: $m-large + $m-little;
-  }
 }
 
 #partners {
@@ -485,6 +481,10 @@ div#content > section {
   height: $h-row3;
   width: $w-partners;
   color: $c-main-dark;
+
+  h1, h2 {
+    margin-top: $m-large + $m-little;
+  }
 
   h1, h2, h3, div {
     margin-left: $m-large;
@@ -616,6 +616,10 @@ ul.rslides > li > .explore-content {
   height: 43%;
   background-color: $c-main-light-rgb;
   background-color: $c-main-light-rgba;
+
+  h1, h2 {
+    margin-top: $m-large + $m-little;
+  }
 
   .hashtag, h2, h3, p {
     padding-left: $m-medium;

@@ -6,12 +6,16 @@
             <p class="spotlight-subtitle">{{ label_contributeurs }}</p>
         </div>
         <div class="stat">
-            <p class="spotlight" id="nb-missions">...</p>
-            <p class="spotlight-subtitle">{{ label_missions }}</p>
-        </div>
-        <div class="stat">
             <p class="spotlight" id="nb-specimens">...</p>
             <p class="spotlight-subtitle">{{ label_specimens }}</p>
+        </div>
+        <div class="stat">
+            <p class="spotlight" id="nb-users">...</p>
+            <p class="spotlight-subtitle">{{ label_users }}</p>
+        </div>
+        <div class="stat">
+            <p class="spotlight" id="nb-missions">...</p>
+            <p class="spotlight-subtitle">{{ label_missions }}</p>
         </div>
     </div>
     <p class="first-line summary">{{ resume_de_la_zone_programme }}</p>
@@ -26,7 +30,7 @@ $.ajax({
     headers: {},
     url: 'https://api.recolnat.org/erecolnat/v1/specimens/count',
     success: function (data) {
-        document.getElementById("nb-specimens").innerHTML = data.toLocaleString('fr-FR');
+        document.getElementById('nb-specimens').innerHTML = data.toLocaleString('fr-FR');
     }
 });
 
@@ -35,7 +39,16 @@ $.ajax({
     headers: {},
     url: 'missionsCount.txt',
     success: function (data) {
-        document.getElementById("nb-missions").innerHTML = data;
+        document.getElementById('nb-missions').innerHTML = data;
+    }
+});
+
+$.ajax({
+    type: 'GET',
+    headers: {},
+    url: 'https://api.recolnat.org/erecolnat/v1/users/count',
+    success: function (data) {
+        document.getElementById('nb-users').innerHTML = data;
     }
 });
 

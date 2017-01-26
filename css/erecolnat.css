@@ -512,7 +512,8 @@ html {
   line-height: 1em; }
 
 .spotlight-subtitle {
-  font-size: 14px; }
+  font-size: 14px;
+  text-transform: lowercase; }
 
 h1, h2, h3, h4, p, ul {
   margin-top: 0px;

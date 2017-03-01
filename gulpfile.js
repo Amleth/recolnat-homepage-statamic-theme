@@ -9,7 +9,7 @@ const themecss = 'css/' + theme + '.css';
 
 elixir(function (mix) {
   mix.remove(themecss);
-  mix.sass('*.scss', themecss);
+  mix.sass('./styles/*.scss', themecss);
   mix.styles([
       './fonts/ikaros/stylesheet.css',
       './node_modules/normalizecss/normalize.css',

@@ -1,28 +1,77 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
+// THE "4 ROWS+FOOTER/9 SECTIONS" LAYOUT DESIGNED BY RAPHAËLLE & LÉA
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// @media rule
+$first-break: 1000px;
+$second-break: 550px;
+$third-break: 400px;
+
+// rows + footer
+$h-rlscale: 0.5;
+$h-row1: $h-rlscale * 700px;
+$h-row2: $h-rlscale * 1200px;
+$h-row3: $h-rlscale * 700px;
+$h-row4: $h-rlscale * 700px;
+$h-footer: $h-rlscale * 664px;
+
+div#content > section {
+  float: left;
+  position: relative;
+}
+
+$w-section-9: 20%;
+#section-1 { height: $h-row1; width: 40%; }
+#section-2 { height: $h-row1; width: 40%; }
+#section-3 { height: $h-row1; width: 20%; }
+#section-4 { height: $h-row2; width: 60%; }
+#section-5 { height: $h-row2; width: 40%; }
+#section-6 { height: $h-row3; width: 100%; }
+#section-7 { height: $h-row4; width: 40%; }
+#section-8 { height: $h-row4; width: 40%; }
+#section-9 { height: $h-row4; width: $w-section-9; }
+
+footer {
+  clear: both;
+  height: $h-footer;
+  width: 100%;
+
+  @media screen and (max-width: $first-break) {
+    min-height: 500px;
+  }
+}
+
+#section-1, #section-2, #section-3, #section-4, #section-5, #section-6, #section-7, #section-8, #section-9 {
+  @media screen and (max-width: $first-break) {
+    width: 100%;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//
 // MENU
 //
 ////////////////////////////////////////////////////////////////////////////////
 
 .recolnat-menu {
   border: medium none;
+  display: block;
+  height: 60px;
   overflow: hidden;
   position: fixed;
   width: 100%;
-  display: block;
-  height:59px;
   z-index: 50;
-}
 
-@media screen and (max-width: 1000px) {
-  .recolnat-menu {
-    height:291px;
+  @media screen and (max-width: $first-break) {
+    height: 291px;
     position: relative;
   }
 }
 
 #content {
-  padding-top:59px;
+  padding-top: 60px;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -31,13 +80,16 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-// ALPHA
+// MARGINS + PADDING
+$m-little: $h-rlscale * 20px;
+$m-medium: $h-rlscale * 40px;
+$m-large: $h-rlscale * 60px;
 
+// ALPHA
 $a-botanic-insert: 0.9;
 $a-explore-insert: 0.75;
 
 // COLOURS
-
 $c-project-bg: #120E15;
 $c-main-dark: #191919;
 $c-main-light: #FFFCF7;
@@ -50,37 +102,7 @@ $c-catchy-green-rgb: rgb(71, 132, 136);
 $c-catchy-green-rgba: rgba(71, 132, 136, $a-explore-insert);
 $c-bg-dark-alpha: rgba(25, 25, 25, 0.75);
 
-// SIZES
-
-$h-rlscale: 0.5;
-$h-row1: $h-rlscale * 700px;
-$h-row2: $h-rlscale * 1200px;
-$h-row3: $h-rlscale * 700px;
-$h-row4: $h-rlscale * 700px;
-$h-footer: $h-rlscale * 664px;
-
-$w-theproject: 40%;
-$w-explorecollections: 40%;
-$w-news: 20%;
-$w-contribute: 60%;
-$w-lab: 40%;
-$w-partners: 100%;
-$w-map: 40%;
-$w-collhelper: 40%;
-$w-contact: 20%;
-$w-footer: 100%;
-
-$w-min-report: 150px;
-$h-min-report: 50px;
-
-// MARGINS + PADDING
-
-$m-little: $h-rlscale * 20px;
-$m-medium: $h-rlscale * 40px;
-$m-large: $h-rlscale * 60px;
-
 // FONTS
-
 $f-spotlight-size: 24px;
 $f-heading-size: 19px;
 $f-heading-line: $f-heading-size * 1.5;
@@ -89,6 +111,9 @@ $f-subheading-line: $f-subheading-size * 1.5;
 $f-content-size: 14px;
 $f-link-size: 14px;
 
+// for responsiveness
+$f-substract: 3px;
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // "ABSTRACT CLASSES"
@@ -96,32 +121,32 @@ $f-link-size: 14px;
 ////////////////////////////////////////////////////////////////////////////////
 
 .link, .link-hover, .link-inverse, .link-inverse-hover {
-	display: inline-block;
-	font-family: 'Merriweather', serif;
+  display: inline-block;
+  font-family: 'Merriweather', serif;
   font-size: $f-link-size;
-  padding: 0 0.5em 0.5em 0.5em;
+  padding: 0 0.5em;
   text-decoration: none;
-	transition: background-color 0.5s ease, color 0.5s ease;
-	vertical-align: text-top;
-	white-space: pre-wrap;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  vertical-align: text-top;
+  white-space: pre-wrap;
 }
 
 .link {
-	color: $c-catchy-link;
+  color: $c-catchy-link;
 }
 
 .link-hover {
-	background-color: $c-catchy-link;
-	color: white;
+  background-color: $c-catchy-link;
+  color: white;
 }
 
 .link-inverse {
-	color: white;
+  color: white;
 }
 
 .link-inverse-hover {
-	background-color: white;
-	color: $c-catchy-link;
+  background-color: white;
+  color: $c-catchy-link;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -129,6 +154,33 @@ $f-link-size: 14px;
 // BASE ELEMENTS
 //
 ////////////////////////////////////////////////////////////////////////////////
+
+html {
+  background-color: $c-main-light
+}
+
+table {
+  border-collapse: collapse;
+
+  th, td {
+    border: 1px solid black;
+    line-height: 1.5;
+  }
+  
+  th {
+    background-color: black;
+    color: white;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  * {
+    font-family: 'Merriweather';
+    vertical-align: middle;
+  }
+}
 
 .botanic-insert {
   @extend .v-centered-elements;
@@ -138,6 +190,10 @@ $f-link-size: 14px;
   margin-left: 10px;
   height: 43%;
   width: 55%;
+
+  @media screen and (max-width: $third-break) {
+    width: 75%;
+  }
 }
 
 ul.pagination {
@@ -148,9 +204,11 @@ ul.pagination {
   li.disabled {
     color: $c-main-dark;
   }
+
   li.active {
     text-decoration: underline;
   }
+  
   li {
     font-weight: bold;
     display: inline;
@@ -162,7 +220,6 @@ ul.pagination {
 
     a {
       text-decoration: none;
-      // color: $c-catchy-link;
       font-family: 'Merriweather', serif;
       font-size: $f-content-size;
     }
@@ -175,16 +232,16 @@ ul.link-list {
   padding: 0;
 
   a {
-	  @extend .link;
+    @extend .link;
   }
 
   a:hover {
-  	@extend .link-hover;
+    @extend .link-hover;
   }
 
   li {
     list-style-position: outside;
-    margin: 0;
+    margin: 0 5px 5px 5px;
     padding: 0;
   }
 }
@@ -192,6 +249,10 @@ ul.link-list {
 .spotlight {
   font-size: $f-spotlight-size;
   line-height: 1em;
+
+  @media screen and (max-width: $third-break) {
+    font-size: $f-spotlight-size - $f-substract;
+  }
 }
 
 .spotlight-subtitle {
@@ -222,6 +283,10 @@ h2 {
   line-height: $f-heading-line;
   padding-top: $m-medium;
   padding-bottom: $m-medium;
+
+  @media screen and (max-width: $third-break) {
+    font-size: $f-heading-size - $f-substract;
+  }
 }
 
 h3, h4 {
@@ -229,6 +294,11 @@ h3, h4 {
   line-height: $f-subheading-line;
   padding-top: $m-medium;
   padding-bottom: $m-medium;
+
+  @media screen and (max-width: $third-break) {
+    font-size: $f-subheading-size - $f-substract;
+    line-height: $f-subheading-line;
+  }
 }
 
 p {
@@ -252,144 +322,150 @@ p {
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-// MAIN PAGE SECTIONS
+// MAIN PAGE SECTIONS CONTENTS
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-html {
-  background-color: $c-main-light
+#content {
+  @media screen and (max-width: $first-break) {
+    padding-top:0;
+  }
 }
 
-// .content {
-//   font-size: $f-content-size;
-// }
-
-div#content > section {
-  float: left;
-  position: relative;
-
-	h2 {
+#content > section {
+  h2 {
     padding: $m-large + $m-little $m-medium $m-medium $m-large;
   }
 
   .link-list {
-  	margin-left: $m-large + $m-medium;
-  	margin-right: $m-large;
-  	margin-top: $m-little;
+    margin-left: $m-large + $m-medium;
+    margin-right: $m-large;
+    margin-top: $m-little;
   }
 }
 
-#theproject {
+.row {
+  @media screen and (max-width: $first-break) {
+    display: block;
+  }
+}
+
+#lastrow {
+  @media screen and (max-width: $first-break) {
+    width: 100%;
+  }
+}
+
+section.objectifs {
   background-color: $c-project-bg;
   color: $c-main-light;
-  height: $h-row1;
   text-overflow: auto;
-  width: $w-theproject;
 
-	p.summary {
+  p.summary {
     padding-left: $m-large;
     padding-right: $m-large;
   }
 
   .stats {
-	  display: inline-flex;
-	  margin: 0 $m-large $m-medium $m-large;
+    display: inline-flex;
+    margin: 0 $m-large $m-medium $m-large;
 
-	  p {
-	  	padding-right: $m-large;
-	  }
-	}
+    p {
+      padding-right: $m-large;
+    }
+  }
   
   .summary {
     font-size: $f-link-size;
+
+    @media screen and (max-width: $third-break) {  
+      font-size: $f-link-size - $f-substract;
+    }
   }
 
   a {
-  	@extend .link;
+    @extend .link;
   }
 
   a:hover {
-  	@extend .link-hover
+    @extend .link-hover
   }
 }
 
-#explorecollections {
-  height: $h-row1;
-  width: $w-explorecollections;
-
+section.explorer-les-collections {
   ul.rslides > li > .explore-content {
-	  background-color: $c-catchy-green-rgba;
-	  font-size: $f-subheading-size;
-	  color: $c-main-light;
-	  text-decoration: none;
-	  text-align: center;
+    background-color: $c-catchy-green-rgba;
+    bottom: 0;
+    color: $c-main-light;
+    font-size: $f-subheading-size;
+    left: 0;
+    line-height: 120%;
+    margin: 0 auto;
+    padding: $m-little;
+    padding-bottom: $m-little + 10px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 30%; 
 
-	  position: absolute;
-	  bottom: 0;
-	  left: 0;
-	  right: 0;
-	  margin: 0 auto;
-	  padding: $m-little;
-	  padding-bottom: $m-little + 10px;
-	  width: 30%; 
-	  line-height: 120%;
-	}
+    @media screen and (max-width: $third-break) {
+      font-size: $f-content-size - $f-substract;
+      width: 50%;
+    }
+  }
 }
 
-#news {
+section.actualites {
   background-color: $c-catchy-news;
   color: $c-main-dark;
-  height: $h-row1;
-  width: $w-news;
 
   ul.news-list {
-  	list-style-type: none;
-  	margin: 0 $m-little 0 30px;
-  	overflow-x: hidden;
-  	overflow-y: hidden;
-   	padding: 0;
+    list-style-type: none;
+    margin: 0 $m-little 0 30px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0;
 
-   	a {
-   		color: black;
-			display: block;
-	  	line-height: 1;
-	  	padding: 0;
-	  	text-decoration: none;
-	  }
+    a {
+      color: black;
+      display: block;
+      line-height: 1;
+      padding: 0;
+      text-decoration: none;
+    }
 
-	  a:hover {
+    a:hover {
 
-	  }
+    }
 
-   	li.news-post {
-	  	line-height: 1;
-	   	padding: 5px;
-	   	transition: background-color 0.5s ease;
+    li.news-post {
+      line-height: 1;
+      padding: 5px;
+      transition: background-color 0.5s ease;
 
-	   	&:hover {
-	   		background-color: rgba(0, 0, 0, 0.1);
-	   	}
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
 
-		  .post-date {
-			  font-family: "ikaros_sansregular";
-			  font-size: $f-link-size;
-			  font-weight: bold;
-			  padding-top: 0px;
-			}
+      .post-date {
+        font-family: "ikaros_sansregular";
+        font-size: $f-link-size;
+        font-weight: bold;
+        padding-top: 0px;
+      }
 
-		  .post-title {
-		    font-family: "ikaros_sansregular";
-		    font-size: $f-content-size;
-		    font-style: italic;
-		    padding-right: $m-large;
-		  }
-	  }
+      .post-title {
+        font-family: "ikaros_sansregular";
+        font-size: $f-content-size;
+        font-style: italic;
+        padding-right: $m-large;
+      }
+    }
   }
 }
 
-#contribute {
-  height: $h-row2;
-  width: $w-contribute;
+section.contribuer {
   color: $c-main-dark;
 
   background-image: url("../../../../assets/travailler-sur-les-planches.jpg");
@@ -404,9 +480,7 @@ div#content > section {
   }
 }
 
-#lab {
-  height: $h-row2;
-  width: $w-lab;
+section.labo {
   color: $c-main-dark;
 
   background-image: url("../../../../assets/entrer-dans-laboratoire.jpg");
@@ -416,17 +490,15 @@ div#content > section {
   background-position: center center;
 
   h2 {
-  	padding-bottom: 0 !important;
+    padding-bottom: 0 !important;
     padding-top: 60px !important;
   }
 }
 
-#partners {
+section.membres-et-partenaires {
   background-color: $c-main-light;
   color: $c-main-dark;
-  height: $h-row3;
   position: relative;
-  width: $w-partners;
 
   h2 {
     padding-top: 60px !important;
@@ -447,17 +519,38 @@ div#content > section {
       flex-wrap: wrap;
 
       img {
-        max-height: 82px;
-        max-width: 111px;
-        padding: 5px;
+        max-height: 70px;
+        max-width: 105px;
+        padding: 10px;
+
+        @media screen and (max-width: $first-break) {
+          max-height: 50px;
+          max-width: 75px;
+          padding: 5px;
+        }
+
+        @media screen and (max-width: $second-break) {
+          max-height: 30px;
+          max-width: 45px;
+          padding: 5px;
+        }
+
+        @media screen and (max-width: $third-break) {
+          display: none;
+        }
       }
     }  
   }
+
+  @media screen and (max-width: $first-break) {
+    div {
+      padding-top: 0px;
+      padding-bottom: $m-little;
+    }
+  }
 }
 
-#map {
-  height: $h-row4;
-  width: $w-map;
+section.carte {
   color: $c-main-dark;
 
   background-image: url("../../../../assets/carte-coel-modif.jpg");
@@ -472,10 +565,8 @@ div#content > section {
   }
 }
 
-#colhelper {
+section.colhelper {
   @extend .contains-v-centered-elements;
-  height: $h-row4;
-  width: $w-collhelper;
   text-align: center;
 
   background-image: url("../../../../assets/demander-specimen.jpg");
@@ -505,132 +596,115 @@ div#content > section {
       padding: 0;
       margin: auto;
     }
+
+    @media screen and (max-width: $third-break) {
+      margin-left: 25%;
+    }
   }
 }
 
-#contact {
+section.publications_presse {
   background-color: $c-catchy-link;
-  color: $c-main-light;
-  height: $h-row4;
-  width: $w-contact;
 
-  .link-list {
-  	list-style-image: url('../img/bullet-white.png');
-  	margin-bottom: $m-large;
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
 
-  	a {
-		  @extend .link-inverse;
-	  }
+  > a {
+    background-color: $c-catchy-link;
+    border: 1px solid white;
+    color: white;
+    display: block;
+    margin: 4em 1em;
+    padding: 2em 1em 1em 1em;
+    text-align: right;
+    text-decoration: none;
+    transition: color 0.5s ease, background-color 0.5s ease;
 
-	  a:hover {
-	  	@extend .link-inverse-hover;
-	  }
+    &:hover {
+      background-color: white;
+      border: 1px solid white;
+      color: $c-catchy-link;
+    }
+  }
+}
+
+footer {
+  > section {
+    float: left;
+    height: 100%;
+    width: 20%;
+
+    @media screen and (max-width: $first-break) {
+      clear: both;
+      height: auto;
+      padding-top: 3em;
+      width: 100%;
+    }
+
+    h2, h3, h4 {
+      font-size: $f-content-size;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 1em;
+    }
+
+    p, a {
+      font-size: $f-link-size;
+
+      @media screen and (max-width: $third-break) {
+        font-size: $f-link-size - $f-substract;
+      }
+    }
+
+    ul {
+      list-style-image: url('../img/bullet-orange.png');
+
+      a {
+        @extend .link;
+
+        &:hover {
+          @extend .link-hover;
+        }
+      }
+    }
+
+    > a {
+      display: block;
+      font-family: 'ikaros_sansregular';
+      text-decoration: none;
+      transition: background-color 0.5s ease, color 0.5s ease;
+
+      &:visited {
+        color: black;
+      }
+
+      > h3 {
+        line-height: 1.1;
+      }
+
+      &:hover {
+        background-color: black;
+        color: white;
+
+        * {
+          color: white;
+        }
+      }
+    }
   }
 
   a.mailtocontact {
-  	color: white;
-  	font-family: 'ikaros_sansregular';
-  	margin-left: $m-medium;
-  	padding: 0.5em;
-  	text-decoration: none;
-  	transition: background-color 0.5s ease;
-
-  	&:hover {
-  		text-decoration: underline;
-  	}
-  }
-}
-
-footer > ul {
-  float: left;
-  width: $w-footer - $w-contact;
-  padding-left: 0px;
-  background-color: $c-main-light;
-
-  .link-list {
-  	margin: 0 0 10px 50px;
-  }
-
-  > li {
-    margin-left: 0px;
-    padding-left: 0px;
-    float: left;
-    width: 25%;
-    min-width: 200px;
-
-    h3, ul, p {
-      margin-left: $m-large;
-    }
-    ul li {
-      padding-bottom: $m-little /2;
-    }
-  }
-
-  p {
-    padding-bottom: $m-medium;
-  }
-
-  a {
-    text-decoration: none;
-    color: $c-main-dark;
-    font-family: 'Merriweather', sans-serif;
-  }
-  
-  h3 a {
-    text-decoration: underline;
-    font-family: "ikaros_sansregular";
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  #tool-list {
-    padding-left: 0px;
-    margin-left: $m-large;
-
-    a {      
-      text-decoration: underline;
-      color: $c-main-dark;
-    }
-  }
-}
-
-#report {
-  float: left;
-  width: $w-contact;
-  height: $h-footer;
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-  background-color: $c-main-light;
-
-  a {
-    @extend .contains-v-centered-elements;
-    @extend .v-centered-elements;
-
-    width: 50%;
-    min-width: $w-min-report;
-    height: $h-footer / 4;
-    min-height: $h-min-report;
-    margin-top: $m-large + $m-medium;
-    margin-left: $m-large;
+    border: 1px solid black;
+    color: black;
+    font-family: 'Merriweather', serif;
+    margin: 5em 1em 1em 1em;
+    padding: 0.5em;
     text-align: center;
-
-    color: $c-main-dark;
-    border: 1px solid $c-main-dark;
-    text-decoration: none;
-
-    h2, h3, h4 {
-      @extend .v-centered-elements;
-      text-align: center;
-
-      padding: 0;
-      margin: auto;
-    }
+    transition: background-color 0.5s ease;
   }
 }
 
@@ -679,7 +753,7 @@ footer > ul {
   ul {
     padding-bottom: $m-medium;
     font-size: $f-subheading-size;
-    font-family: "ikaros_sansregular";
+    font-family: 'ikaros_sansregular';
   }
 
   .logopartenaire {
@@ -715,187 +789,13 @@ footer > ul {
   }
 }
 
-footer {
-  clear: both;
-  height: $h-footer;
-  width: 100%;
-
-  background-color: $c-main-light;
-  color: $c-main-dark;
-  margin-left: 0px;
+.label {
+  table {
+    margin-bottom: 40px;
+  }
 
   ul {
-    list-style-type: none;
-    padding-left: 0px;
-    margin-left: 0px;
-    background-color: $c-main-light;
-  }
-
-  h2, h3, h4 {
-    font-size: $f-content-size;
-  }
-  p, a {
-    font-size: $f-link-size;
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-//
-// RESPONSIVENESS
-//
-////////////////////////////////////////////////////////////////////////////////
-
-$f-substract: 3px;
-
-@media screen and (max-width: 400px) {
-  .spotlight {
-    font-size: $f-spotlight-size - $f-substract;
-  }
-  
-  .link-list a {
-    font-size: $f-link-size - $f-substract;
-  }
-  
-  .summary {
-    font-size: $f-link-size - $f-substract;
-  }
-
-  h2 {
-    font-size: $f-heading-size - $f-substract;
-  }
-  
-  h3, h4 {
-    font-size: $f-subheading-size - $f-substract;
-    line-height: $f-subheading-line;
-  }  
-
-  footer p, footer a {
-    font-size: $f-link-size - $f-substract;
-  }
-  
-  ul.rslides > li > .explore-content {
-    font-size: $f-content-size - $f-substract;
     width: 50%;
-  }
-  
-  .botanic-insert {
-    width: 75%;
-  }
-  
-  #colhelper a {
-    margin-left: 25%;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  #partners img {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  #content {
-    padding-top:0;
-  }
-  .row {
-    display: block;
-  }
-
-  #theproject {
-    width: 100%;    
-  }
-
-  #explorecollections {
-    width: 100%;
-  }
-
-  #news {
-    width: 100%;
-  }
-
-  #contribute {
-    width: 100%;
-  }
-
-  #lab {
-    width: 100%;
-  }
-
-  #partners {
-    width: 100%;
-
-    div {
-      padding-top: 0px;
-      padding-bottom: $m-little;
-    
-    }
-    img {
-      width: auto;
-      height: auto;
-      padding-top: $m-little;
-      padding-right: $m-little;
-      padding-bottom: 0px;
-      max-height: 50px;
-      max-width: 70px;
-    }
-  }
-
-  #map {
-    width: 100%;
-  }
-
-  #colhelper {
-    width: 100%;
-  }
-
-  #contact {
-    width: 100%;
-  }
-
-  #lastrow {
-    width: 100%;
-  }
-  
-  .rslides li {
-    top: $h-row1;
-  }
-  
-  .large-btns_nav {
-    top: 0;
-    left: 0;
-  }
-  
-  .large-btns_nav.prev {
-    left: 0px;
-    top: 0px;
-    right: auto;
-  }
- 
-  .large-btns_nav.next {
-    left: auto;
-    top: 0px;
-    right: 0px;
-  }
-
-  footer {
-    min-height: 500px;
-
-    > ul {
-      width: 100%;
-      background-color: $c-main-light;
-    }
-  }
-  
-  #report {
-    width: 100%;
-    height: $h-min-report * 2;
-    margin: 0px;
-
-    a {
-      margin-top: $m-large;
-      width: $w-min-report;
-      height: $h-min-report;
-    }
   }
 }
 
@@ -916,36 +816,29 @@ $f-substract: 3px;
   max-height: $h-row1;
   padding: 0;
   margin: 0;
-}
 
-.rslides li {
-  -webkit-backface-visibility: hidden;
-  position: absolute;
-  display: none;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  max-height: $h-row1;
-  background-color: transparent;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
+  li {
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    max-height: $h-row1;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 
-// .rslides li:first-child {
-//   position: relative;
-//   display: block;
-//   float: left;
-// }
-
-.rslides img {
-  display: block;
-  width: 100%;
-  height: auto;
-  //max-height: $h-row1;
-  float: left;
-  border: 0;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    float: left;
+    border: 0;
+  }
 }
 
 .centered-btns_nav {
@@ -1004,37 +897,46 @@ $f-substract: 3px;
   overflow: hidden;
   top: 0;
   left: 0;
-  //left: $w-theproject;
   background: #000 url("../img/themes.gif") no-repeat left 50%;
   width: 38px;
   height: $h-row1;
+
+  @media screen and (max-width: $first-break) {
+    top: 0;
+    left: 0;
+  }
 }
 
 .large-btns_nav:active {
   opacity: 1.0;
 }
 
+.large-btns_nav.prev {
+  @media screen and (max-width: $first-break) {
+    left: 0px;
+    top: 0px;
+    right: auto;
+  }
+}
+
 .large-btns_nav.next {
   left: auto;
   right: 0;
-  //right: $w-news;
   background-position: right 50%;
+
+  @media screen and (max-width: $first-break) {
+    left: auto;
+    top: 0px;
+    right: 0px;
+  }
 }
 
-.centered-btns_nav:focus,
-.transparent-btns_nav:focus,
-.large-btns_nav:focus {
+.centered-btns_nav:focus, .transparent-btns_nav:focus, .large-btns_nav:focus {
   outline: none;
 }
 
-.centered-btns_tabs,
-.transparent-btns_tabs,
-.large-btns_tabs {
-  // position: absolute;
+.centered-btns_tabs, .transparent-btns_tabs, .large-btns_tabs {
   z-index: 3;
-  // bottom: 0;
-  // left: 40%;
-  //margin-top: $h-row1 - 20;
   text-align: center;
   position: absolute;
   bottom: 0;
@@ -1044,9 +946,7 @@ $f-substract: 3px;
   padding: 0;
 }
 
-.centered-btns_tabs li,
-.transparent-btns_tabs li,
-.large-btns_tabs li {
+.centered-btns_tabs li, .transparent-btns_tabs li, .large-btns_tabs li {
   display: inline;
   float: none;
   _float: left;
@@ -1054,9 +954,7 @@ $f-substract: 3px;
   margin-right: 5px;
 }
 
-.centered-btns_tabs a,
-.transparent-btns_tabs a,
-.large-btns_tabs a {
+.centered-btns_tabs a, .transparent-btns_tabs a, .large-btns_tabs a {
   text-indent: -9999px;
   overflow: hidden;
   -webkit-border-radius: 15px;
@@ -1074,9 +972,7 @@ $f-substract: 3px;
   height: 9px;
 }
 
-.centered-btns_here a,
-.transparent-btns_here a,
-.large-btns_here a {
+.centered-btns_here a, .transparent-btns_here a, .large-btns_here a {
   background: #222;
   background: rgba(0, 0, 0, .8);
 }

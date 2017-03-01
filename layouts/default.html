@@ -29,46 +29,42 @@
 
 <footer class="row">
 {{ get_content from="/" }}
-    <ul>
-        <li>
-            <h3><a href="{{ lien_vers_la_page_programme }}">{{ footer_titre_le_programme }}</a></h3>
-            <p>{{ footer_resume_du_programme }}</p>
-            <ul class="link-list orange">
-                <li><a href="{{ footer_lien_mentions_legales }}">{{ footer_label_du_lien_mentions_legales }}</a></li>
-            </ul>
-        </li>
-        <li>
-            <h3>{{ footer_titre_de_la_liste_des_outils }}</h3>
-            <ul id="tool-list">
-                <li><a target="_blank" href="{{ lien_vers_loutils_explore }}">{{ titre_de_loutils_explore }}</a></li>
-                <li><a target="_blank" href="{{ lien_vers_les_herbonautes }}">{{ titre_de_loutils_herbonautes }}</a></li>
-                <li><a target="_blank" href="{{ lien_vers_loutils_qualite }}">{{ titre_de_loutils_qualite }}</a></li>
-                <li><a target="_blank" href="{{ lien_vers_le_collaboratoire }}">{{ titre_de_loutils_collaboratoire }}</a></li>
-                <li><a target="_blank" href="{{ lien_vers_loutils_coel }}">{{ titre_de_loutils_coel }}</a></li>
-                <li><a target="_blank" href="{{ lien_vers_loutils_colhelper }}">{{ titre_de_loutils_colhelper }}</a></li>
-            </ul>
-        </li>
-        <li>
-            <h3><a href="{{ footer_lien_vers_la_liste_des_collections }}">{{ footer_titre_de_la_liste_des_collections }}</a></h3>
-            <ul>
-            {{ collection:collections limit="5" }}    
-                <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
-            {{ /collection:collections }}
-            </ul>
-        </li>
-        <li>
-            <h3><a href="{{ footer_lien_vers_la_liste_des_publications_scientifiques }}">{{ footer_titre_de_la_liste_des_publications_scientifiques }}</a></h3>
-            <ul>
-            {{ collection:publications limit="2" }}    
-                <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
-            {{ /collection:publications }}
-            </ul>
-
-            <h3><a href="{{ footer_lien_vers_la_liste_des_articles_de_presse }}">{{ footer_titre_de_la_liste_des_articles_de_presse }}</a></h3>
-        </li>
-    </ul>
-    <section id="report">
-        <a href="{{ footer_lien_vers_le_rapport_dactivite }}"><h4>{{ footer_label_du_lien_vers_le_rapport_dactivite }}</h4></a>
+    <section>
+        <a href="{{ lien_vers_la_page_programme }}"><h3>{{ footer_titre_le_programme }}</h3></a>
+        <!-- <p>{{ footer_resume_du_programme }}</p>
+        <ul class="link-list orange">
+            <li><a href="{{ footer_lien_mentions_legales }}">{{ footer_label_du_lien_mentions_legales }}</a></li>
+        </ul> -->
+    </section>
+    <section>
+        <h3>{{ footer_titre_de_la_liste_des_outils }}</h3>
+        <ul>
+            <li><a target="_blank" href="{{ lien_vers_loutils_explore }}">{{ titre_de_loutils_explore }}</a></li>
+            <li><a target="_blank" href="{{ lien_vers_les_herbonautes }}">{{ titre_de_loutils_herbonautes }}</a></li>
+            <li><a target="_blank" href="{{ lien_vers_loutils_qualite }}">{{ titre_de_loutils_qualite }}</a></li>
+            <li><a target="_blank" href="{{ lien_vers_le_collaboratoire }}">{{ titre_de_loutils_collaboratoire }}</a></li>
+            <li><a target="_blank" href="{{ lien_vers_loutils_coel }}">{{ titre_de_loutils_coel }}</a></li>
+            <li><a target="_blank" href="{{ lien_vers_loutils_colhelper }}">{{ titre_de_loutils_colhelper }}</a></li>
+        </ul>
+    </section>
+    <section>
+        <a href="{{ footer_lien_vers_la_liste_des_collections }}"><h3>{{ footer_titre_de_la_liste_des_collections }}</h3></a>
+        <ul>
+        {{ collection:collections limit="5" }}
+            <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
+        {{ /collection:collections }}
+        </ul>
+    </section>
+    <section>
+        <a href="{{ footer_lien_vers_le_rapport_dactivite }}"><h3>{{ footer_label_du_lien_vers_le_rapport_dactivite }}</h3></a>
+    </section>
+    <section class="contact">
+        <h3>{{ titre_de_la_zone_contact }}</h3>
+        <ul>
+            <li><a href="{{ lien_vers_les_contributeurs }}">{{ label_du_lien_vers_les_contributeurs }}</a></li>
+            <li><a href="{{ lien_vers_les_questions }}">{{ label_du_lien_vers_les_questions }}</a></li>
+        </ul>
+        <a class="mailtocontact" href="mailto:{{ email_de_contact }}">{{ email_de_contact }}</a>
     </section>
 {{ /get_content }}
 </footer>

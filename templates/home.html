@@ -1,4 +1,4 @@
-<section id="theproject">
+<section id="section-1" class="objectifs">
     <h2>{{ titre_de_la_zone_programme }}</h2>
     <div class="stats">
         <div class="stat">
@@ -20,7 +20,7 @@
         <li><a class="link" href="{{ lien_vers_la_page_chiffres }}">{{ label_du_lien_vers_la_page_chiffres }}</a></li>
     </ul>
 </section>
-<section id="explorecollections" class="rslides_container contains-v-centered-elements">
+<section id="section-2" class="explorer-les-collections rslides_container contains-v-centered-elements">
     <ul class="rslides">
         {{ collection:belles-images scope="bp" }}
         {{ assets:picture }}
@@ -31,7 +31,7 @@
         {{ /collection:belles-images }}
     </ul>
 </section>
-<section id="news">
+<section id="section-3" class="actualites">
     <h2>{{ titre_de_la_zone_actualites }}</h2>
     <ul class="news-list">
     {{ collection:news scope="news" limit="2" }}
@@ -49,7 +49,7 @@
         <li><a class="link" href="{{ lien_vers_toutes_les_actualites }}">{{ label_du_lien_vers_toutes_les_actualites }}</a></li>
     </ul>
 </section>
-<section id="contribute" class="contains-v-centered-elements">
+<section id="section-4" class="contribuer contains-v-centered-elements">
     <div class="botanic-insert">
         <h2>{{ titre_de_la_zone_botanique }}</h2>
         <ul class="link-list">
@@ -58,7 +58,7 @@
         </ul>
     </div>
 </section>
-<section id="lab" class="contains-v-centered-elements">
+<section id="section-5" class="labo contains-v-centered-elements">
     <div class="botanic-insert">
         <h2>{{ titre_de_la_zone_laboratoire }}</h2>
         <ul class="link-list">
@@ -66,7 +66,7 @@
         </ul>
     </div>
 </section>
-<section id="partners">
+<section id="section-6" class="membres-et-partenaires">
     <h2>{{ titre_de_la_zone_membres_partenaires_projets }}</h2>
     <div class="pw">
         <ul class="link-list">
@@ -86,7 +86,7 @@
         </div>
     </div>
 </section>
-<section id="map" class="contains-v-centered-elements">
+<section id="section-7" class="carte contains-v-centered-elements">
     <div class="botanic-insert">
         <h2>{{ titre_de_la_zone_des_collections}}</h2>
         <ul class="link-list">
@@ -96,16 +96,17 @@
         </ul>
     </div>
 </section>
-<section id="colhelper">
+<section id="section-8" class="colhelper">
     <!-- <a href="{{ colhelper_lien }}"><h2>Demander un spécimen</h2></a> -->
 </section>
-<section id="contact">
-    <h2>{{ titre_de_la_zone_contact }}</h2>
-    <ul class="link-list">
-        <li><a href="{{ lien_vers_les_contributeurs }}">{{ label_du_lien_vers_les_contributeurs }}</a></li>
-        <li><a href="{{ lien_vers_les_questions }}">{{ label_du_lien_vers_les_questions }}</a></li>
-    </ul>
-    <a class="mailtocontact" href="mailto:{{ email_de_contact }}">{{ email_de_contact }}</a>
+<section id="section-9" class="publications_presse">
+    <a href="{{ footer_lien_vers_la_liste_des_publications_scientifiques }}"><h3>{{ footer_titre_de_la_liste_des_publications_scientifiques }}</h3></a>
+    <!-- <ul>
+    {{ collection:publications limit="2" }}    
+        <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
+    {{ /collection:publications }}
+    </ul> -->
+    <a href="{{ footer_lien_vers_la_liste_des_articles_de_presse }}"><h3>{{ footer_titre_de_la_liste_des_articles_de_presse }}</h3></a>
 </section>
 
 <script>

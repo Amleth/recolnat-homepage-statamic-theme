@@ -874,6 +874,7 @@ footer > section {
     footer > section {
       clear: both;
       height: auto;
+      padding-top: 3em;
       width: 100%; } }
   footer > section h2, footer > section h3, footer > section h4 {
     font-size: 14px; }

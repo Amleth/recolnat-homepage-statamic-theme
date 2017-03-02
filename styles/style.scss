@@ -233,10 +233,10 @@ ul.link-list {
 
   a {
     @extend .link;
-  }
 
-  a:hover {
-    @extend .link-hover;
+    &:hover {
+	    @extend .link-hover;
+	  }
   }
 
   li {
@@ -732,12 +732,13 @@ footer {
   margin-bottom: 200px;
   text-align: justify;
 
-  a:not(.logo) {
-    @extend .link;
-  }
+  main > p > a:not(.logo) {
+    color: $c-catchy-link;
+    text-decoration: none;
 
-  a:hover:not(.logo) {
-    @extend .link-hover;
+    &:hover {
+	    text-decoration: underline;
+	  }
   }
 
   > * {
@@ -761,6 +762,14 @@ footer {
     padding-bottom: $m-medium;
     font-size: $f-subheading-size;
     font-family: 'ikaros_sansregular';
+
+    a {
+		  @extend .link;
+
+		  &:hover {
+		    @extend .link-hover;
+		  }
+		}
   }
 
   .logopartenaire {

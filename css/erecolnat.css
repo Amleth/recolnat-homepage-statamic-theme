@@ -514,7 +514,7 @@ footer {
 #content {
   padding-top: 60px; }
 
-.link, ul.link-list a, section.objectifs a, footer > section ul a, .page a:not(.logo), .link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page a:hover:not(.logo), .link-inverse, .link-inverse-hover {
+.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a, .link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page ul a:hover, .link-inverse, .link-inverse-hover {
   display: inline-block;
   font-family: 'Merriweather', serif;
   font-size: 14px;
@@ -524,10 +524,10 @@ footer {
   vertical-align: text-top;
   white-space: pre-wrap; }
 
-.link, ul.link-list a, section.objectifs a, footer > section ul a, .page a:not(.logo) {
+.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a {
   color: #DD6754; }
 
-.link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page a:hover:not(.logo) {
+.link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page ul a:hover {
   background-color: #DD6754;
   color: white; }
 
@@ -926,6 +926,11 @@ footer a.mailtocontact {
 .page {
   margin-bottom: 200px;
   text-align: justify; }
+  .page main > p > a:not(.logo) {
+    color: #DD6754;
+    text-decoration: none; }
+    .page main > p > a:not(.logo):hover {
+      text-decoration: underline; }
   .page > * {
     margin-left: auto;
     margin-right: auto;

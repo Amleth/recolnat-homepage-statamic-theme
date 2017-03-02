@@ -4,15 +4,25 @@
 <h2>Botanique</h2>
 
 <ul>
-{{ collection:partenaires scope="p" }}
+{{ collection:partenaires scope="p" science:isnt="zoo" science:isnt="pal" }}
 	<li><a href="/nos-partenaires/{{ slug }}">{{ title }}</a></li>
 {{ /collection:partenaires }}
 </ul>
 
 <h2>Zoologie</h2>
-<ul></ul>
+
+<ul>
+{{ collection:partenaires scope="p" science:is="zoo" }}
+	<li><a href="/nos-partenaires/{{ slug }}">{{ title }}</a></li>
+{{ /collection:partenaires }}
+</ul>
 
 <h2>Paléontologie</h2>
-<ul></ul>
+
+<ul>
+{{ collection:partenaires scope="p" science:is="pal" }}
+	<li><a href="/nos-partenaires/{{ slug }}">{{ title }}</a></li>
+{{ /collection:partenaires }}
+</ul>
 
 </main>

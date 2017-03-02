@@ -721,7 +721,7 @@ footer {
 ////////////////////////////////////////////////////////////////////////////////
 
 .entete {
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
@@ -780,6 +780,15 @@ footer {
 
   .chapeau {
     font-style: italic;
+
+    > a {
+    	color: $c-catchy-link;
+	    text-decoration: none;
+
+	    &:hover {
+		    text-decoration: underline;
+		  }
+    }
   }
 }
 

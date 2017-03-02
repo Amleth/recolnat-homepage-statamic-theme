@@ -917,7 +917,7 @@ footer a.mailtocontact {
   transition: background-color 0.5s ease; }
 
 .entete {
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
@@ -952,6 +952,11 @@ footer a.mailtocontact {
     max-width: 150px; }
   .page .chapeau {
     font-style: italic; }
+    .page .chapeau > a {
+      color: #DD6754;
+      text-decoration: none; }
+      .page .chapeau > a:hover {
+        text-decoration: underline; }
 
 .membres section .logo img {
   float: right;

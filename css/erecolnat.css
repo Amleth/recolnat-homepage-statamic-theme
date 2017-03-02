@@ -881,6 +881,8 @@ footer > section {
   footer > section h3 {
     margin: 0;
     padding: 1em; }
+  footer > section > a, footer > section > h3 {
+    margin: 5px; }
   footer > section p, footer > section a {
     font-size: 14px; }
     @media screen and (max-width: 400px) {
@@ -889,6 +891,8 @@ footer > section {
   footer > section ul {
     list-style-image: url("../img/bullet-orange.png"); }
   footer > section > a {
+    border: 1px solid black;
+    color: black;
     display: block;
     font-family: 'ikaros_sansregular';
     text-decoration: none;
@@ -920,7 +924,8 @@ footer a.mailtocontact {
   width: 100%; }
 
 .page {
-  margin-bottom: 100px; }
+  margin-bottom: 200px;
+  text-align: justify; }
   .page > * {
     margin-left: auto;
     margin-right: auto;
@@ -941,7 +946,6 @@ footer a.mailtocontact {
     margin: 50px;
     max-width: 150px; }
   .page .chapeau {
-    border-bottom: 1px solid gray;
     font-style: italic; }
 
 .membres section .logo img {

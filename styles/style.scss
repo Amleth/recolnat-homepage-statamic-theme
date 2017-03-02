@@ -652,6 +652,10 @@ footer {
       padding: 1em;
     }
 
+    > a, > h3 {
+    	margin: 5px;
+    }
+
     p, a {
       font-size: $f-link-size;
 
@@ -673,6 +677,7 @@ footer {
     }
 
     > a {
+    	border: 1px solid black;
       color: black;
       display: block;
       font-family: 'ikaros_sansregular';
@@ -724,7 +729,8 @@ footer {
 }
 
 .page {
-  margin-bottom: 100px;
+  margin-bottom: 200px;
+  text-align: justify;
 
   a:not(.logo) {
     @extend .link;
@@ -764,7 +770,6 @@ footer {
   }
 
   .chapeau {
-    border-bottom: 1px solid gray;
     font-style: italic;
   }
 }

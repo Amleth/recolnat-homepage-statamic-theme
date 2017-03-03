@@ -926,30 +926,33 @@ footer a.mailtocontact {
 .page {
   margin-bottom: 200px;
   text-align: justify; }
+  .page > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%; }
+  .page > a.logo {
+    float: right;
+    margin: 0;
+    width: auto; }
+    .page > a.logo > img {
+      margin: 50px;
+      max-width: 150px; }
   .page main > p > a:not(.logo) {
     color: #DD6754;
     text-decoration: none; }
     .page main > p > a:not(.logo):hover {
       text-decoration: underline; }
-  .page > * {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%; }
   .page .post {
     border: 2px solid gray;
     box-sizing: border-box;
     margin-bottom: 30px;
     padding: 20px; }
-  .page p, .page hr {
+  .page p {
     margin-bottom: 20px; }
   .page ul {
     padding-bottom: 20px;
     font-size: 16px;
     font-family: 'ikaros_sansregular'; }
-  .page .logopartenaire {
-    float: right;
-    margin: 50px;
-    max-width: 150px; }
   .page .chapeau {
     font-style: italic; }
     .page .chapeau > a {

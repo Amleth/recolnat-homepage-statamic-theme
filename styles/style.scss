@@ -732,6 +732,23 @@ footer {
   margin-bottom: 200px;
   text-align: justify;
 
+  > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
+
+  > a.logo {
+    float: right;
+    margin: 0;
+    width: auto;
+
+    > img {
+      margin: 50px;
+      max-width: 150px;
+    }
+  }
+
   main > p > a:not(.logo) {
     color: $c-catchy-link;
     text-decoration: none;
@@ -741,12 +758,6 @@ footer {
 	  }
   }
 
-  > * {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-  }
-
   .post {
     border: 2px solid gray;
     box-sizing: border-box;
@@ -754,7 +765,7 @@ footer {
     padding: $m-medium;
   }
 
-  p, hr {
+  p {
     margin-bottom: $m-medium;
   }
 
@@ -770,12 +781,6 @@ footer {
 		    @extend .link-hover;
 		  }
 		}
-  }
-
-  .logopartenaire {
-    float: right;
-    margin: 50px;
-    max-width: 150px;
   }
 
   .chapeau {

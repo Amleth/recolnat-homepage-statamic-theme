@@ -4,10 +4,15 @@
 
 <article class="page">
 	{{ assets:logo }}
-  	<img src="{{ url }}" class="logopartenaire" />
+	<a class="logo" href="{{ webpage }}">
+  	<img src="{{ url }}" alt="{{ title }}" />
+	</a>
 	{{ /assets:logo }}
+	
 	<h1>{{ title }}</h1>
-	<p class="chapeau">{{ chapeau }}
-	</p>
+	
+	<p class="chapeau">{{ chapeau }}</p>
+
 	<main>{{ content }}</main>
+
 </article>

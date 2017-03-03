@@ -1,0 +1,45 @@
+<main class="page label">
+<h1>Label RECOLNAT</h1>
+
+<h2>Pourquoi un label ?</h2>
+
+<p>→ Faciliter les opérations d'importation / exportation [interopérabilité] de données entre les solutions logicielles de gestion des collections et la plateforme e-ReColNat.</p>
+<p>→ Normaliser le flux d'échanges des données. [ Darwin Core, UID ] </p>
+<p>→ Standardiser les données scientifiques. [ ISO, normes, standards existants ]</p>
+
+<h2>Liste des solutions logicielles labellisées RECOLNAT</h2>
+
+<table>
+        <thead>
+                <tr>
+                        <th>Éditeur</th>
+                        <th>Produit</th>
+                        <th>Version</th>
+                        <th>Type label</th>
+                        <th>Date d'obtention</th>
+                        <th>Date de validité</th>
+                </tr>
+        </thead>
+        <tbody>
+        {{ collection:label scope="p" }}
+                <tr>
+<a href="">
+                        <td>{{ editeur }}</td>
+                        <td>{{ produit }}</td>
+                        <td>{{ version }}</td>
+                        <td>{{ type_label }}</td>
+                        <td>{{ date_dobtention }}</td>
+                        <td>{{ date_de_validite }}</td>
+                </tr>
+</a>
+        {{ /collection:label }}
+
+        </tbody>
+</table>
+
+
+<p><i>Label argent : compatibilité flux ascendant - le logiciel exporte ses données au format Recolnat</i>
+<p><i>Label or : label argent + compatibilité flux descendant - le logiciel importe des données au format Recolnat</i>
+
+</main>
+

@@ -446,6 +446,13 @@ th {
   padding: 0;
 }
 
+/* MNHN */
+.label table {
+  margin-bottom: 40px; }
+
+.label ul {
+  width: 50%; }
+
 div#content > section {
   float: left;
   position: relative; }

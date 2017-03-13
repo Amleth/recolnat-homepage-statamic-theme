@@ -983,6 +983,14 @@ footer a.mailtocontact {
 .label table {
   margin-bottom: 40px; }
 
+.label tr:hover {
+  background: #DD6754; }
+
+.label td a {
+  display: block;
+  border: 1px solid black;
+  padding: 16px; }
+
 .label ul {
   width: 50%; }
 

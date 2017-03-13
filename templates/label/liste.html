@@ -1,12 +1,6 @@
 <main class="page label">
 <h1>Label RECOLNAT</h1>
 
-<h2>Pourquoi un label ?</h2>
-
-<p>→ Faciliter les opérations d'importation / exportation [interopérabilité] de données entre les solutions logicielles de gestion des collections et la plateforme e-ReColNat.</p>
-<p>→ Normaliser le flux d'échanges des données. [ Darwin Core, UID ] </p>
-<p>→ Standardiser les données scientifiques. [ ISO, normes, standards existants ]</p>
-
 <h2>Liste des solutions logicielles labellisées RECOLNAT</h2>
 
 <table>
@@ -23,15 +17,13 @@
         <tbody>
         {{ collection:label scope="p" }}
                 <tr>
-<a href="">
-                        <td>{{ editeur }}</td>
-                        <td>{{ produit }}</td>
-                        <td>{{ version }}</td>
-                        <td>{{ type_label }}</td>
-                        <td>{{ date_dobtention }}</td>
-                        <td>{{ date_de_validite }}</td>
+                        <td><a href="label/{{id}}">{{ editeur }}</a></td>
+                        <td><a href="label/{{id}}">{{ produit }}</a></td>
+                        <td><a href="label/{{id}}">{{ version }}</a></td>
+                        <td><a href="label/{{id}}">{{ type_label }}</a></td>
+                        <td><a href="label/{{id}}">{{ date_dobtention }}</a></td>
+                        <td><a href="label/{{id}}">{{ date_de_validite }}</a></td>
                 </tr>
-</a>
         {{ /collection:label }}
 
         </tbody>
@@ -40,6 +32,13 @@
 
 <p><i>Label argent : compatibilité flux ascendant - le logiciel exporte ses données au format Recolnat</i>
 <p><i>Label or : label argent + compatibilité flux descendant - le logiciel importe des données au format Recolnat</i>
+
+
+<h2>Pourquoi un label ?</h2>
+
+<p>→ Faciliter les opérations d'importation / exportation [interopérabilité] de données entre les solutions logicielles de gestion des collections et la plateforme e-ReColNat.</p>
+<p>→ Normaliser le flux d'échanges des données. [ Darwin Core, UID ] </p>
+<p>→ Standardiser les données scientifiques. [ ISO, normes, standards existants ]</p>
 
 </main>
 

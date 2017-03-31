@@ -109,6 +109,8 @@
     <a href="{{ footer_lien_vers_la_liste_des_articles_de_presse }}"><h3>{{ footer_titre_de_la_liste_des_articles_de_presse }}</h3></a>
 </section>
 
+<div id="flags"><p onclick="change_loc('fr')" class="flag fr">fr</p><p onclick="change_loc('en')" class="flag en">en</p></div>
+
 <script>
 $.ajax({
     type: 'GET',
@@ -136,4 +138,10 @@ $.ajax({
         document.getElementById('nb-users').innerHTML = data;
     }
 });
+
+var change_loc = function(l) {
+    var base_url = window.location.toString().replace('/en/', '').replace('/fr/', '');
+    window.location = base_url + '/' + l + '/';
+};
+
 </script>

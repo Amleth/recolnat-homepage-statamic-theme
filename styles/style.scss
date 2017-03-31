@@ -155,6 +155,10 @@ $f-substract: 3px;
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+* {
+  cursor: default;
+}
+
 html {
   background-color: $c-main-light
 }
@@ -325,6 +329,30 @@ p {
 // MAIN PAGE SECTIONS CONTENTS
 //
 ////////////////////////////////////////////////////////////////////////////////
+
+#flags {
+  position: absolute;
+  right: 0;
+
+  .flag {
+    background-color: black;
+    color: white;
+    display: inline-block;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 10px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    user-select: none;
+    width: 24px;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+}
 
 #content {
   @media screen and (max-width: $first-break) {

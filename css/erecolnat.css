@@ -545,6 +545,9 @@ footer {
   background-color: white;
   color: #DD6754; }
 
+* {
+  cursor: default; }
+
 html {
   background-color: #FFFCF7; }
 
@@ -663,6 +666,28 @@ p {
 
 .v-centered-elements, .botanic-insert, section.colhelper a, section.colhelper a h2 {
   vertical-align: middle; }
+
+#flags {
+  position: absolute;
+  right: 0; }
+  #flags .flag {
+    background-color: black;
+    color: white;
+    display: inline-block;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 10px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 24px; }
+    #flags .flag:hover {
+      background-color: white;
+      color: black; }
 
 @media screen and (max-width: 1000px) {
   #content {

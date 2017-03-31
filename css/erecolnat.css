@@ -987,7 +987,10 @@ footer a.mailtocontact {
     font-size: 16px;
     font-family: 'ikaros_sansregular'; }
   .page .chapeau {
-    font-style: italic; }
+    background-color: rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    margin-bottom: 5em;
+    padding: 1em; }
     .page .chapeau > a {
       color: #DD6754;
       text-decoration: none; }

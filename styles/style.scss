@@ -813,7 +813,10 @@ footer {
   }
 
   .chapeau {
+    background-color: rgba(0, 0, 0, 0.1);
     font-style: italic;
+    margin-bottom: 5em;
+    padding: 1em;
 
     > a {
     	color: $c-catchy-link;

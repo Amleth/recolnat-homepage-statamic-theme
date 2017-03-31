@@ -940,12 +940,13 @@ footer > section {
         color: white; }
 
 footer a.mailtocontact {
-  border: 1px solid black;
+  border: none !important;
   color: black;
-  font-family: 'Merriweather', serif;
+  font-family: 'ikaros_sansregular', serif;
   margin: 5em 1em 1em 1em;
-  padding: 0.5em;
+  padding: 0.5em 0 0 0;
   text-align: center;
+  text-decoration: underline;
   transition: background-color 0.5s ease; }
 
 .entete {

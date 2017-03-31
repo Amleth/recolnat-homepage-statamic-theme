@@ -850,7 +850,12 @@ footer {
   table {
     margin-bottom: 40px;
   }
-
+  tr:hover { background: #DD6754; }
+  td a { 
+    display: block; 
+    border: 1px solid black;
+    padding: 16px; 
+  }
   ul {
     width: 50%;
   }

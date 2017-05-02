@@ -3,6 +3,7 @@
   "devDependencies": {
     "cookie": "^0.3.1",
     "gulp": "*",
+    "gulp-connect-php": "^1.0.0",
     "gulp-watch": "^4.3.5",
     "jquery": "^3.1.1",
     "js-cookie": "^2.1.3",

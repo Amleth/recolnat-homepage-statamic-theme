@@ -1,10 +1,11 @@
-var elixir = require('laravel-elixir');
-var gulp = require('gulp');
-var theme = 'erecolnat';
-var watch = require('gulp-watch');
-elixir.config.assetsPath = './';
+const connect = require('gulp-connect-php');
+const gulp = require('gulp');
+const elixir = require('laravel-elixir');
 require('laravel-elixir-remove');
+const watch = require('gulp-watch');
 
+elixir.config.assetsPath = './';
+const theme = 'erecolnat';
 const themecss = 'css/' + theme + '.css';
 
 elixir(function (mix) {
@@ -26,4 +27,8 @@ elixir(function (mix) {
     ],
     './js/erecolnat.js'
   );
+});
+
+gulp.task('connect', () => {
+  connect.server({port: 8080, base: '../../..'});
 });

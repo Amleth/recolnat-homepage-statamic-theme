@@ -545,6 +545,13 @@ footer {
   background-color: white;
   color: #DD6754; }
 
+.url, .page .post a {
+  color: #DD6754;
+  text-decoration: none; }
+
+.url-hover, .page .post a:hover {
+  text-decoration: underline; }
+
 * {
   cursor: default; }
 
@@ -562,7 +569,7 @@ table {
   table td {
     text-align: center; }
   table * {
-    font-family: 'Merriweather';
+    font-family: 'Merriweather', serif;
     vertical-align: middle; }
 
 .botanic-insert {
@@ -574,27 +581,6 @@ table {
   @media screen and (max-width: 400px) {
     .botanic-insert {
       width: 75%; } }
-
-ul.pagination {
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
-  ul.pagination li.disabled {
-    color: #191919; }
-  ul.pagination li.active {
-    text-decoration: underline; }
-  ul.pagination li {
-    font-weight: bold;
-    display: inline;
-    padding-right: 5px;
-    padding-left: 5px;
-    color: #DD6754;
-    font-family: 'Merriweather', serif;
-    font-size: 14px; }
-    ul.pagination li a {
-      text-decoration: none;
-      font-family: 'Merriweather', serif;
-      font-size: 14px; }
 
 ul.link-list {
   list-style-image: url("../img/bullet-orange.png");
@@ -996,6 +982,34 @@ footer a.mailtocontact {
       text-decoration: none; }
       .page .chapeau > a:hover {
         text-decoration: underline; }
+  .page ul.pagination {
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    text-align: center;
+    height: 50px; }
+    .page ul.pagination * {
+      font-family: 'ikaros_sansregular', sans-serif;
+      font-size: 28px !important; }
+    .page ul.pagination a {
+      display: inline-block;
+      font-family: 'ikaros_sansregular', serif;
+      text-decoration: none;
+      transition: background-color 0.5s ease, color 0.5s ease; }
+    .page ul.pagination li {
+      display: inline; }
+      .page ul.pagination li.active > span {
+        text-decoration: underline !important; }
+      .page ul.pagination li.disabled > span {
+        color: #191919; }
+    .page ul.pagination span {
+      display: inline-block;
+      vertical-align: text-top; }
+    .page ul.pagination a, .page ul.pagination span {
+      padding: 1em;
+      margin: 0; }
 
 .membres section .logo img {
   float: right;

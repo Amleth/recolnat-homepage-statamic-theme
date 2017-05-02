@@ -23,15 +23,50 @@ div#content > section {
 }
 
 $w-section-9: 20%;
-#section-1 { height: $h-row1; width: 40%; }
-#section-2 { height: $h-row1; width: 40%; }
-#section-3 { height: $h-row1; width: 20%; }
-#section-4 { height: $h-row2; width: 60%; }
-#section-5 { height: $h-row2; width: 40%; }
-#section-6 { height: $h-row3; width: 100%; }
-#section-7 { height: $h-row4; width: 40%; }
-#section-8 { height: $h-row4; width: 40%; }
-#section-9 { height: $h-row4; width: $w-section-9; }
+#section-1 {
+  height: $h-row1;
+  width: 40%;
+}
+
+#section-2 {
+  height: $h-row1;
+  width: 40%;
+}
+
+#section-3 {
+  height: $h-row1;
+  width: 20%;
+}
+
+#section-4 {
+  height: $h-row2;
+  width: 60%;
+}
+
+#section-5 {
+  height: $h-row2;
+  width: 40%;
+}
+
+#section-6 {
+  height: $h-row3;
+  width: 100%;
+}
+
+#section-7 {
+  height: $h-row4;
+  width: 40%;
+}
+
+#section-8 {
+  height: $h-row4;
+  width: 40%;
+}
+
+#section-9 {
+  height: $h-row4;
+  width: $w-section-9;
+}
 
 footer {
   clear: both;
@@ -149,6 +184,15 @@ $f-substract: 3px;
   color: $c-catchy-link;
 }
 
+.url {
+  color: $c-catchy-link;
+  text-decoration: none;
+}
+
+.url-hover {
+  text-decoration: underline;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // BASE ELEMENTS
@@ -170,7 +214,7 @@ table {
     border: 1px solid black;
     line-height: 1.5;
   }
-  
+
   th {
     background-color: black;
     color: white;
@@ -181,7 +225,7 @@ table {
   }
 
   * {
-    font-family: 'Merriweather';
+    font-family: 'Merriweather', serif;
     vertical-align: middle;
   }
 }
@@ -200,36 +244,6 @@ table {
   }
 }
 
-ul.pagination {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  li.disabled {
-    color: $c-main-dark;
-  }
-
-  li.active {
-    text-decoration: underline;
-  }
-  
-  li {
-    font-weight: bold;
-    display: inline;
-    padding-right:5px;
-    padding-left:5px;
-    color: $c-catchy-link;
-    font-family: 'Merriweather', serif;
-    font-size: $f-content-size;
-
-    a {
-      text-decoration: none;
-      font-family: 'Merriweather', serif;
-      font-size: $f-content-size;
-    }
-  }
-}
-
 ul.link-list {
   list-style-image: url('../img/bullet-orange.png');
   margin: 0;
@@ -239,8 +253,8 @@ ul.link-list {
     @extend .link;
 
     &:hover {
-	    @extend .link-hover;
-	  }
+      @extend .link-hover;
+    }
   }
 
   li {
@@ -279,7 +293,7 @@ h2, h3, h4, .explore-content {
   font-family: 'ikaros_sansregular';
   letter-spacing: 1pt;
   text-transform: uppercase;
-  font-weight: bold;  
+  font-weight: bold;
 }
 
 h2 {
@@ -356,7 +370,7 @@ p {
 
 #content {
   @media screen and (max-width: $first-break) {
-    padding-top:0;
+    padding-top: 0;
   }
 }
 
@@ -402,11 +416,11 @@ section.objectifs {
       padding-right: $m-large;
     }
   }
-  
+
   .summary {
     font-size: $f-link-size;
 
-    @media screen and (max-width: $third-break) {  
+    @media screen and (max-width: $third-break) {
       font-size: $f-link-size - $f-substract;
     }
   }
@@ -435,7 +449,7 @@ section.explorer-les-collections {
     right: 0;
     text-align: center;
     text-decoration: none;
-    width: 30%; 
+    width: 30%;
 
     @media screen and (max-width: $third-break) {
       font-size: $f-content-size - $f-substract;
@@ -537,7 +551,7 @@ section.membres-et-partenaires {
     width: 100%;
 
     ul.link-list {
-      
+
     }
 
     div.logos {
@@ -567,7 +581,7 @@ section.membres-et-partenaires {
           display: none;
         }
       }
-    }  
+    }
   }
 
   @media screen and (max-width: $first-break) {
@@ -681,7 +695,7 @@ footer {
     }
 
     > a, > h3 {
-    	margin: 5px;
+      margin: 5px;
     }
 
     p, a {
@@ -705,7 +719,7 @@ footer {
     }
 
     > a {
-    	border: 1px solid black;
+      border: 1px solid black;
       color: black;
       display: block;
       font-family: 'ikaros_sansregular';
@@ -783,8 +797,8 @@ footer {
     text-decoration: none;
 
     &:hover {
-	    text-decoration: underline;
-	  }
+      text-decoration: underline;
+    }
   }
 
   .post {
@@ -792,6 +806,14 @@ footer {
     box-sizing: border-box;
     margin-bottom: $m-large;
     padding: $m-medium;
+
+    a {
+      @extend .url;
+
+      &:hover {
+        @extend .url-hover;
+      }
+    }
   }
 
   p {
@@ -804,12 +826,12 @@ footer {
     font-family: 'ikaros_sansregular';
 
     a {
-		  @extend .link;
+      @extend .link;
 
-		  &:hover {
-		    @extend .link-hover;
-		  }
-		}
+      &:hover {
+        @extend .link-hover;
+      }
+    }
   }
 
   .chapeau {
@@ -819,12 +841,56 @@ footer {
     padding: 1em;
 
     > a {
-    	color: $c-catchy-link;
-	    text-decoration: none;
+      color: $c-catchy-link;
+      text-decoration: none;
 
-	    &:hover {
-		    text-decoration: underline;
-		  }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  ul.pagination {
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    text-align: center;
+    height: 50px;
+
+    * {
+      font-family: 'ikaros_sansregular', sans-serif;
+      font-size: $f-content-size * 2 !important;
+    }
+
+    a {
+      display: inline-block;
+      font-family: 'ikaros_sansregular', serif;
+      text-decoration: none;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    li {
+      display: inline;
+
+      &.active > span {
+        text-decoration: underline !important;
+      }
+
+      &.disabled > span {
+        color: $c-main-dark;
+      }
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: text-top;
+    }
+
+    a, span {
+      padding: 1em;
+      margin: 0;
     }
   }
 }
@@ -841,7 +907,7 @@ footer {
     .chapeau {
       font-style: italic;
     }
-  }  
+  }
 }
 
 .partenaires {
@@ -854,11 +920,13 @@ footer {
   table {
     margin-bottom: 40px;
   }
-  tr:hover { background: #DD6754; }
-  td a { 
-    display: block; 
+  tr:hover {
+    background: #DD6754;
+  }
+  td a {
+    display: block;
     border: 1px solid black;
-    padding: 16px; 
+    padding: 16px;
   }
   ul {
     width: 50%;

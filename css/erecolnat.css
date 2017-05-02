@@ -506,7 +506,8 @@ footer {
     width: 100%; } }
 
 .recolnat-menu {
-  border: medium none;
+  border: none;
+  border-bottom: 1px solid black;
   display: block;
   height: 60px;
   overflow: hidden;
@@ -974,7 +975,7 @@ footer a.mailtocontact {
     font-size: 16px;
     font-family: 'ikaros_sansregular'; }
   .page .chapeau {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
     font-style: italic;
     margin-bottom: 5em;
     padding: 1em; }

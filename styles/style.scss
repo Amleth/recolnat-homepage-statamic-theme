@@ -91,7 +91,8 @@ footer {
 ////////////////////////////////////////////////////////////////////////////////
 
 .recolnat-menu {
-  border: medium none;
+  border: none;
+  border-bottom: 1px solid black;
   display: block;
   height: 60px;
   overflow: hidden;
@@ -836,7 +837,7 @@ footer {
   }
 
   .chapeau {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
     font-style: italic;
     margin-bottom: 5em;
     padding: 1em;

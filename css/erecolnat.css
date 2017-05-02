@@ -604,7 +604,7 @@ ul.link-list {
   text-transform: lowercase; }
 
 h1 {
-  font-family: 'ikaros_sansregular';
+  font-family: 'ikaros_sansregular', sans-serif;
   padding: 1em 0;
   text-transform: uppercase; }
 
@@ -1038,6 +1038,15 @@ footer a.mailtocontact {
 
 .label ul {
   width: 50%; }
+
+.chiffres h2 {
+  margin: 0 auto;
+  padding: 0.82em 0 0 0; }
+
+.chiffres td {
+  font-family: 'ikaros_sansregular', sans-serif;
+  padding: 0.82em 0.5em 0 0.5em;
+  text-align: left; }
 
 /*! http://responsiveslides.com v1.54 by @viljamis */
 .rslides {

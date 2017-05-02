@@ -22,13 +22,14 @@
 
 <body>
 
-<iframe id="recolnatMenu" class="recolnat-menu" seamless="seamless" scrolling="no" src="https://www.recolnat.org/menu/"></iframe>
+<iframe id="recolnatMenu" class="recolnat-menu" seamless="seamless" scrolling="no"
+        src="https://www.recolnat.org/menu/"></iframe>
 <div id="content">
-{{ template_content }}
+    {{ template_content }}
 </div>
 
 <footer class="row">
-{{ get_content from="/" }}
+    {{ get_content from="/" }}
     <section>
         <a href="{{ lien_vers_la_page_programme }}"><h3>{{ footer_titre_le_programme }}</h3></a>
         <!-- <p>{{ footer_resume_du_programme }}</p>
@@ -42,21 +43,24 @@
             <li><a target="_blank" href="{{ lien_vers_loutils_explore }}">{{ titre_de_loutils_explore }}</a></li>
             <li><a target="_blank" href="{{ lien_vers_les_herbonautes }}">{{ titre_de_loutils_herbonautes }}</a></li>
             <li><a target="_blank" href="{{ lien_vers_loutils_qualite }}">{{ titre_de_loutils_qualite }}</a></li>
-            <li><a target="_blank" href="{{ lien_vers_le_collaboratoire }}">{{ titre_de_loutils_collaboratoire }}</a></li>
+            <li><a target="_blank" href="{{ lien_vers_le_collaboratoire }}">{{ titre_de_loutils_collaboratoire }}</a>
+            </li>
             <li><a target="_blank" href="{{ lien_vers_loutils_coel }}">{{ titre_de_loutils_coel }}</a></li>
             <li><a target="_blank" href="{{ lien_vers_loutils_colhelper }}">{{ titre_de_loutils_colhelper }}</a></li>
         </ul>
     </section>
     <section>
-        <a href="{{ footer_lien_vers_la_liste_des_collections }}"><h3>{{ footer_titre_de_la_liste_des_collections }}</h3></a>
+        <a href="{{ footer_lien_vers_la_liste_des_collections }}"><h3>{{ footer_titre_de_la_liste_des_collections
+            }}</h3></a>
         <ul>
-        {{ collection:collections limit="5" }}
+            {{ collection:collections limit="5" }}
             <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
-        {{ /collection:collections }}
+            {{ /collection:collections }}
         </ul>
     </section>
     <section>
-        <a href="{{ footer_lien_vers_le_rapport_dactivite }}"><h3>{{ footer_label_du_lien_vers_le_rapport_dactivite }}</h3></a>
+        <a href="{{ footer_lien_vers_le_rapport_dactivite }}"><h3>{{ footer_label_du_lien_vers_le_rapport_dactivite
+            }}</h3></a>
     </section>
     <section class="contact">
         <h3>{{ titre_de_la_zone_contact }}</h3>
@@ -66,43 +70,43 @@
         </ul>
         <a class="mailtocontact" href="mailto:{{ email_de_contact }}">{{ email_de_contact }}</a>
     </section>
-{{ /get_content }}
+    {{ /get_content }}
 </footer>
 
 <script>
-'use strict';
+  'use strict';
 
-var userLoggedIn = false;
+  var userLoggedIn = false;
 
-var mainReady = false;
-var iframeReady = false;
+  var mainReady = false;
+  var iframeReady = false;
 
-$(function () {
+  $(function () {
     mainReady = true;
     init();
-});
+  });
 
-$('#recolnatMenu').bind('load', function() {
+  $('#recolnatMenu').bind('load', function () {
     iframeReady = true;
     init();
-});
+  });
 
-var click_loginButton = function() {
-    window.location.replace("https://cas.recolnat.org/login?service=" + [location.protocol, '//', location.host, location.pathname].join(''));
-};
+  var click_loginButton = function () {
+    window.location.replace('https://cas.recolnat.org/login?service=' + [location.protocol, '//', location.host, location.pathname].join(''));
+  };
 
-function init() {
-    if(!mainReady || !iframeReady) return;
+  function init() {
+    if (!mainReady || !iframeReady) return;
     $('#recolnatMenu').contents().find('li.button a').first().click(click_loginButton);
 
     var cc = Cookies.get('CASTGC');
     console.log('COOKIE:', cc);
     if (cc == undefined) {
-        userLoggedIn = false;
-        updateLoginView(userLoggedIn);
-        return;
+      userLoggedIn = false;
+      updateLoginView(userLoggedIn);
+      return;
     }
-    
+
     $.post({
       url: 'https://cas.recolnat.org/v1/tickets/' + cc,
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -111,34 +115,70 @@ function init() {
         var ticket = data;
         console.log('TICKET:', ticket);
         $.post({
-            url: 'https://cas.recolnat.org/serviceValidate',
-            data: { ticket: ticket, service: "http://wp5test.recolnat.org" },
-            success: function (xml, status, xhr) {
-            		var user = '';
-            		if(xml.getElementsByTagName('cas:user').length == 0) {
-            			user = xml.getElementsByTagName('user')[0].firstChild.nodeValue;
-            		}
-            		else {
-            			user = xml.getElementsByTagName('cas:user')[0].firstChild.nodeValue;
-            		}   
-                console.log('CAS USER:', user);
-                $.get({
-                    url: 'https://api.recolnat.org/erecolnat/v1/users/login/' + user,
-                    success: function (data) {
-                        userLoggedIn = true;
-                        console.log('USER DATA:', data.email, data.user_uuid);
-                        updateLoginView(userLoggedIn, user);
-                    }
-                });
+          url: 'https://cas.recolnat.org/serviceValidate',
+          data: {ticket: ticket, service: 'http://wp5test.recolnat.org'},
+          success: function (xml, status, xhr) {
+            var user = '';
+            if (xml.getElementsByTagName('cas:user').length == 0) {
+              user = xml.getElementsByTagName('user')[0].firstChild.nodeValue;
             }
+            else {
+              user = xml.getElementsByTagName('cas:user')[0].firstChild.nodeValue;
+            }
+            console.log('CAS USER:', user);
+            $.get({
+              url: 'https://api.recolnat.org/erecolnat/v1/users/login/' + user,
+              success: function (data) {
+                userLoggedIn = true;
+                console.log('USER DATA:', data.email, data.user_uuid);
+                updateLoginView(userLoggedIn, user);
+              }
+            });
+          }
         });
       }
     });
-}
+  }
 
-function updateLoginView(loggedIn, user) {
+  function updateLoginView(loggedIn, user) {
     $('#recolnatMenu').contents().find('li.button a').first().text(loggedIn ? 'Bienvenue, ' + user : 'Me connecter');
-}
+  }
+
+  //
+  // LANG MANAGEMENT
+  //
+
+  var supported_langs = ['fr', 'en'];
+
+  var change_loc = function (lang) {
+    var location_parts = window.location.toString().split('/').filter(function (_) {
+      return _;
+    });
+    var lang_in_url = '';
+    if (supported_langs.indexOf(location_parts[2]) !== -1) {
+      lang_in_url = location_parts[2];
+      location_parts.splice(2, 1);
+    }
+
+    if (lang !== lang_in_url) {
+      location_parts.splice(2, 0, lang);
+      location_parts[0] += '//';
+      window.location = location_parts.join('/') + '/';
+    }
+  };
+
+  // Detect browser lang if there is no lang in the URL
+  var location_parts = window.location.toString().split('/').filter(function (_) {
+    return _;
+  });
+  var lang_in_url = '';
+  if (supported_langs.indexOf(location_parts[2]) !== -1) {
+    lang_in_url = location_parts[2];
+    location_parts.splice(2, 1);
+  }
+  if (!lang_in_url) {
+    change_loc(navigator.language.startsWith('fr') ? 'fr' : 'en');
+  }
 </script>
 
 </body>

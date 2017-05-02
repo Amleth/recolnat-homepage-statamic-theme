@@ -34,7 +34,7 @@
 <section id="section-3" class="actualites">
     <h2>{{ titre_de_la_zone_actualites }}</h2>
     <ul class="news-list">
-    {{ collection:news scope="news" limit="2" }}
+        {{ collection:news scope="news" limit="2" }}
         <a href="/actualites#{{ title }}">
             <li class="news-post">
                 <span class="post-date">{{ date format="d-m-Y" }}</span>
@@ -43,10 +43,11 @@
                 <!-- <div class="post-summary"><a href="/actualites#{{ title }}">{{ content | safe_truncate:100:... }}</a></div> -->
             </li>
         </a>
-    {{ /collection:news }}
+        {{ /collection:news }}
     </ul>
     <ul class="link-list">
-        <li><a class="link" href="{{ lien_vers_toutes_les_actualites }}">{{ label_du_lien_vers_toutes_les_actualites }}</a></li>
+        <li><a class="link" href="{{ lien_vers_toutes_les_actualites }}">{{ label_du_lien_vers_toutes_les_actualites
+            }}</a></li>
     </ul>
 </section>
 <section id="section-4" class="contribuer contains-v-centered-elements">
@@ -77,11 +78,11 @@
         </ul>
         <div class="logos">
             {{ collection:membres scope="m" }}
-                {{ assets:logo }}
-                    <a href="{{ lien_vers_nos_membres }}#{{ title }}">
-                        <img src="{{ url }}" alt="{{ m:title }}"/>
-                    </a>
-                {{ /assets:logo }}
+            {{ assets:logo }}
+            <a href="{{ lien_vers_nos_membres }}#{{ title }}">
+                <img src="{{ url }}" alt="{{ m:title }}"/>
+            </a>
+            {{ /assets:logo }}
             {{ /collection:membres }}
         </div>
     </div>
@@ -90,9 +91,12 @@
     <div class="botanic-insert">
         <h2>{{ titre_de_la_zone_des_collections}}</h2>
         <ul class="link-list">
-            <li><a href="{{ lien_vers_les_collections_botaniques }}">{{ label_du_lien_vers_les_collections_botaniques }}</a></li>
-            <li><a href="{{ lien_vers_les_collections_zoologiques }}">{{ label_du_lien_vers_les_collections_zoologiques }}</a></li>
-            <li><a href="{{ lien_vers_les_collections_paletontologiques }}">{{ label_du_lien_vers_les_collections_paletontologiques }}</a></li>
+            <li><a href="{{ lien_vers_les_collections_botaniques }}">{{ label_du_lien_vers_les_collections_botaniques
+                }}</a></li>
+            <li><a href="{{ lien_vers_les_collections_zoologiques }}">{{ label_du_lien_vers_les_collections_zoologiques
+                }}</a></li>
+            <li><a href="{{ lien_vers_les_collections_paletontologiques }}">{{
+                label_du_lien_vers_les_collections_paletontologiques }}</a></li>
         </ul>
     </div>
 </section>
@@ -100,49 +104,47 @@
     <!-- <a href="{{ colhelper_lien }}"><h2>Demander un spécimen</h2></a> -->
 </section>
 <section id="section-9" class="publications_presse">
-    <a href="{{ footer_lien_vers_la_liste_des_publications_scientifiques }}"><h3>{{ footer_titre_de_la_liste_des_publications_scientifiques }}</h3></a>
+    <a href="{{ footer_lien_vers_la_liste_des_publications_scientifiques }}"><h3>{{
+        footer_titre_de_la_liste_des_publications_scientifiques }}</h3></a>
     <!-- <ul>
     {{ collection:publications limit="2" }}    
         <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
     {{ /collection:publications }}
     </ul> -->
-    <a href="{{ footer_lien_vers_la_liste_des_articles_de_presse }}"><h3>{{ footer_titre_de_la_liste_des_articles_de_presse }}</h3></a>
+    <a href="{{ footer_lien_vers_la_liste_des_articles_de_presse }}"><h3>{{
+        footer_titre_de_la_liste_des_articles_de_presse }}</h3></a>
 </section>
 
-<div id="flags"><p onclick="change_loc('fr')" class="flag fr">fr</p><p onclick="change_loc('en')" class="flag en">en</p></div>
+<div id="flags">
+    <p onclick="change_loc('fr')" class="flag fr">fr</p>
+    <p onclick="change_loc('en')" class="flag en">en</p>
+</div>
 
 <script>
-$.ajax({
+  $.ajax({
     type: 'GET',
     headers: {},
     url: 'https://api.recolnat.org/erecolnat/v1/specimens/count',
     success: function (data) {
-        document.getElementById('nb-specimens').innerHTML = data.toLocaleString('fr-FR');
+      document.getElementById('nb-specimens').innerHTML = data.toLocaleString('fr-FR');
     }
-});
+  });
 
-$.ajax({
+  $.ajax({
     type: 'GET',
     headers: {},
     url: 'missionsCount.txt',
     success: function (data) {
-        document.getElementById('nb-missions').innerHTML = data;
+      document.getElementById('nb-missions').innerHTML = data;
     }
-});
+  });
 
-$.ajax({
+  $.ajax({
     type: 'GET',
     headers: {},
     url: 'https://api.recolnat.org/erecolnat/v1/users/count',
     success: function (data) {
-        document.getElementById('nb-users').innerHTML = data;
+      document.getElementById('nb-users').innerHTML = data;
     }
-});
-
-var change_loc = function(l) {
-    var base_url = window.location.toString().replace('/en/', '').replace('/fr/', '');
-    if(base_url.endsWith('/')) base_url = base_url.substring(0, base_url.length - 1);
-    window.location = base_url + '/' + l + '/';
-};
-
+  });
 </script>

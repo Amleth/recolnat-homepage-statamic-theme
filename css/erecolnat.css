@@ -522,7 +522,7 @@ footer {
 #content {
   padding-top: 60px; }
 
-.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a, .link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page ul a:hover, .link-inverse, .link-inverse-hover {
+.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a, .chiffres table thead td:not(:first-child) a, .chiffres table tbody td a, .link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page ul a:hover, .chiffres table tbody td a:hover, .link-inverse, .link-inverse-hover {
   display: inline-block;
   font-family: 'Merriweather', serif;
   font-size: 14px;
@@ -532,10 +532,10 @@ footer {
   vertical-align: text-top;
   white-space: pre-wrap; }
 
-.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a {
+.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a, .chiffres table thead td:not(:first-child) a, .chiffres table tbody td a {
   color: #DD6754; }
 
-.link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page ul a:hover {
+.link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page ul a:hover, .chiffres table tbody td a:hover {
   background-color: #DD6754;
   color: white; }
 
@@ -658,24 +658,22 @@ p {
   position: absolute;
   right: 0; }
   #flags .flag {
-    background-color: black;
-    color: white;
-    display: inline-block;
+    border: none;
     float: left;
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 10px;
-    line-height: 24px;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    height: 24px;
+    opacity: 0.6;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 24px; }
+    transition: opacity 0.5s ease;
+    width: 40px; }
     #flags .flag:hover {
-      background-color: white;
-      color: black; }
+      opacity: 1; }
+  #flags .flag.fr {
+    background-image: url("https://explore.recolnat.org/resources/img/header/fr.png"); }
+  #flags .flag.en {
+    background-image: url("https://explore.recolnat.org/resources/img/header/en.png"); }
 
 @media screen and (max-width: 1000px) {
   #content {
@@ -1039,14 +1037,40 @@ footer a.mailtocontact {
 .label ul {
   width: 50%; }
 
+.chiffres table {
+  margin-bottom: 3em; }
+  .chiffres table thead td {
+    border: none; }
+  .chiffres table thead td:not(:first-child) a {
+    font-family: 'ikaros_sansregular', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase; }
+    .chiffres table thead td:not(:first-child) a:hover {
+      text-decoration: underline; }
+
 .chiffres h2 {
   margin: 0 auto;
   padding: 0.82em 0 0 0; }
 
-.chiffres td {
-  font-family: 'ikaros_sansregular', sans-serif;
-  padding: 0.82em 0.5em 0 0.5em;
+.chiffres table.donnees td {
+  width: 25%; }
+
+.chiffres tbody td:first-child {
+  background-color: white;
+  color: black;
+  font-family: 'Merriweather', serif;
+  padding: 0.1em;
   text-align: left; }
+
+.chiffres tbody td:not(:first-child) {
+  background-color: #DD6754;
+  color: black;
+  font-family: "Courier New", Courier, monospace !important;
+  font-weight: bold;
+  text-align: center; }
+
+.chiffres table.bicolumn tbody td {
+  width: 50%; }
 
 /*! http://responsiveslides.com v1.54 by @viljamis */
 .rslides {

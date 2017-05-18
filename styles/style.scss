@@ -350,23 +350,24 @@ p {
   right: 0;
 
   .flag {
-    background-color: black;
-    color: white;
-    display: inline-block;
+    border: none;
     float: left;
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 10px;
-    line-height: 24px;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    height: 24px;
+    opacity: 0.6;
     user-select: none;
-    width: 24px;
+    transition: opacity 0.5s ease;
+    width: 40px;
 
     &:hover {
-      background-color: white;
-      color: black;
+      opacity: 1;
     }
+  }
+
+  .flag.fr {
+    background-image: url("https://explore.recolnat.org/resources/img/header/fr.png");
+  }
+  .flag.en {
+    background-image: url("https://explore.recolnat.org/resources/img/header/en.png");
   }
 }
 
@@ -936,15 +937,64 @@ footer {
 }
 
 .chiffres {
+  table {
+    margin-bottom: 3em;
+
+    thead td {
+      border: none;
+    }
+
+    thead td:not(:first-child) {
+      a {
+        @extend .link;
+        font-family: 'ikaros_sansregular', sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
   h2 {
     margin: 0 auto;
     padding: 0.82em 0 0 0;
   }
 
-  td {
-    font-family: 'ikaros_sansregular', sans-serif;
-    padding: 0.82em 0.5em 0 0.5em;
+  table.donnees td {
+    width: 25%;
+  }
+
+  tbody td:first-child {
+    background-color: white;
+    color: black;
+    font-family: 'Merriweather', serif;
+    padding: 0.1em;
     text-align: left;
+  }
+
+  tbody td:not(:first-child) {
+    background-color: $c-catchy-link;
+    color: black;
+    font-family: "Courier New", Courier, monospace !important;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  table.bicolumn tbody td {
+    width: 50%;
+  }
+
+  table tbody td {
+    a {
+      @extend .link;
+      
+      &:hover {
+        @extend .link-hover;
+      }
+    }
   }
 }
 

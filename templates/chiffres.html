@@ -1,79 +1,116 @@
+<script>
+  var base_url = location_parts[0] + '//' + location_parts[1] + '/';
+  var fa_css = base_url + 'site/themes/erecolnat/css/font-awesome.min.css';
+
+  (function () {
+    console.log(fa_css);
+    var styles = '@import url(\'' + fa_css + '\');';
+    var newSS = document.createElement('link');
+    newSS.rel = 'stylesheet';
+    newSS.href = 'data:text/css,' + escape(styles);
+    document.getElementsByTagName('head')[0].appendChild(newSS);
+  })();
+</script>
+
 <div class="chiffres page">
     <h1>Les chiffres du programme Recolnat</h1>
 
-    <h2>Chiffres devant remplacer ceux du cartouche noir sur la home page</h2>
+    <h2>Données du programme Recolnat</h2>
 
-    <table>
-        <thead></thead>
+    <table class="donnees">
+        <thead>
+        <tr>
+            <td></td>
+            <td><a href="https://explore.recolnat.org/search/botanique/type=index">Botanique</a></td>
+            <td><a href="https://explore.recolnat.org/search/zoologie/type=index">Zoologie</a></td>
+            <td><a href="https://explore.recolnat.org/search/paleeontologie/type=index">Paléontologie</a></td>
+        </tr>
+        </thead>
         <tbody>
         <tr>
-            <td>Spécimens images</td>
-            <td></td>
+            <td>Types</td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
         </tr>
         <tr>
-            <td>Données de spécimens</td>
-            <td></td>
+            <td>Spécimens</td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
         </tr>
         <tr>
-            <td>Inscrit.e.s</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Visites</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Projets</td> <!-- sets du collaboratoire + missions herbonautes -->
-            <td></td>
-        </tr>
-        <tr>
-            <td>Institutions partenaires</td>
-            <td></td>
+            <td>Images numérisées</td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
         </tr>
         </tbody>
     </table>
 
-    <h2>Chiffres détaillés sur cette page</h2>
+    <h2>Données de la science participative</h2>
 
-    <table>
+    <table class="bicolumn">
         <thead></thead>
         <tbody>
         <tr>
-            <td>Sets du Colaboratoire</td>
-            <td></td>
+            <td>Missions <a href="http://lesherbonautes.mnhn.fr/">Les Herbonautes</a></td>
+            <td id="herbo-missions"><i class="fa fa-cog fa-spin fa-fw"></i></td>
         </tr>
         <tr>
-            <td>Missions Les Herbonautes</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Participations Les Herbonautes</td>
-            <td></td>
+            <td>Participations <a href="http://lesherbonautes.mnhn.fr/">Les Herbonautes</a></td>
+            <td id="herbo-participations"><i class="fa fa-cog fa-spin fa-fw"></i></td>
         </tr>
         <tr>
             <td>Spécimens traités par la science participative</td>
-            <td></td>
+            <td id="specimens-sc-part"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+        </tr>
+        <!--<tr>
+            <td>Sets du Colaboratoire</td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+        </tr>-->
+        </tbody>
+    </table>
+
+    <h2>Le programme Recolnat</h2>
+
+    <table class="bicolumn">
+        <thead></thead>
+        <tbody>
+        <tr>
+            <td>Inscrit.e.s</td>
+            <td id="users"><i class="fa fa-cog fa-spin fa-fw"></i></td>
         </tr>
         <tr>
-            <td>Spécimens en zoologie</td>
-            <td></td>
+            <td>Institutions partenaires</td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
         </tr>
         <tr>
-            <td>Spécimens en botanique</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Spécimens en paléontologie</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Spécimens en paléoanthropologie</td>
-            <td></td>
+            <td>Visites</td>
+            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
         </tr>
         </tbody>
     </table>
 </div>
 
 <script>
+  $.ajax({
+    type: 'GET',
+    headers: {},
+    url: 'https://api.recolnat.org/erecolnat/v1/users/count',
+    success: function (data) {
+      document.getElementById('users').innerHTML = data;
+    }
+  });
 
+  $.ajax({
+    type: 'GET',
+    headers: {},
+    url: base_url + '/herbo-stats.json',
+    success: function (data) {
+      document.getElementById('herbo-missions').innerHTML = data.missions;
+      document.getElementById('specimens-sc-part').innerHTML = data.spécimens;
+      document.getElementById('herbo-participations').innerHTML = data.contributions;
+    }
+  });
 </script>

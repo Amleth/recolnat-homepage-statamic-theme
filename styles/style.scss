@@ -461,13 +461,18 @@ section.explorer-les-collections {
   }
 }
 
+
 section.actualites {
   background-color: $c-catchy-news;
   color: $c-main-dark;
 
+  h2 {
+    padding: 40px 20px 0 20px !important;
+  }
+
   ul.news-list {
     list-style-type: none;
-    margin: 0 $m-little 0 30px;
+    margin: 0 20px;
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 0;
@@ -483,10 +488,12 @@ section.actualites {
     a:hover {
 
     }
-
+    
     li.news-post {
+      border-left: 3px solid rgba(0, 0, 0, 0.1) !important;
       line-height: 1;
-      padding: 5px;
+      margin-bottom: 5px;
+      padding: 3px 3px 3px 6px;
       transition: background-color 0.5s ease;
 
       &:hover {
@@ -494,17 +501,23 @@ section.actualites {
       }
 
       .post-date {
-        font-family: "ikaros_sansregular";
+        font-family: 'ikaros_sansregular', sans-serif;
         font-size: $f-link-size;
         font-weight: bold;
         padding-top: 0px;
       }
 
       .post-title {
-        font-family: "ikaros_sansregular";
+	display: block;
+        font-family: 'iakros_sansregular', serif;
         font-size: $f-content-size;
-        font-style: italic;
-        padding-right: $m-large;
+        max-height: 2em;
+        line-height: 1em;
+        margin-top: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	width: 100%;
       }
     }
   }

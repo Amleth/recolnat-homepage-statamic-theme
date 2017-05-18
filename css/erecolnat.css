@@ -737,9 +737,11 @@ section.explorer-les-collections ul.rslides > li > .explore-content {
 section.actualites {
   background-color: #A8EFC5;
   color: #191919; }
+  section.actualites h2 {
+    padding: 40px 20px 0 20px !important; }
   section.actualites ul.news-list {
     list-style-type: none;
-    margin: 0 10px 0 30px;
+    margin: 0 20px;
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 0; }
@@ -750,21 +752,29 @@ section.actualites {
       padding: 0;
       text-decoration: none; }
     section.actualites ul.news-list li.news-post {
+      border-left: 3px solid rgba(0, 0, 0, 0.1) !important;
       line-height: 1;
-      padding: 5px;
+      margin-bottom: 5px;
+      padding: 3px 3px 3px 6px;
       transition: background-color 0.5s ease; }
       section.actualites ul.news-list li.news-post:hover {
         background-color: rgba(0, 0, 0, 0.1); }
       section.actualites ul.news-list li.news-post .post-date {
-        font-family: "ikaros_sansregular";
+        font-family: 'ikaros_sansregular', sans-serif;
         font-size: 14px;
         font-weight: bold;
         padding-top: 0px; }
       section.actualites ul.news-list li.news-post .post-title {
-        font-family: "ikaros_sansregular";
+        display: block;
+        font-family: 'iakros_sansregular', serif;
         font-size: 14px;
-        font-style: italic;
-        padding-right: 30px; }
+        max-height: 2em;
+        line-height: 1em;
+        margin-top: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        width: 100%; }
 
 section.contribuer {
   color: #191919;

@@ -950,7 +950,22 @@ footer {
 }
 
 .chiffres {
+
+  h2 {
+    a {
+      @extend .link;
+      font-family: 'ikaros_sansregular', sans-serif; 
+      font-size: $f-heading-size;
+      vertical-align: baseline;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   table {
+    border: 2px solid black;
     margin-bottom: 3em;
 
     thead td {
@@ -1008,6 +1023,20 @@ footer {
         @extend .link-hover;
       }
     }
+  }
+
+  .explore-stats {
+      border-top: 2px solid black;
+      overflow: hidden;
+
+      iframe {
+        border: none;
+        border-bottom: 2px solid black;
+        height: 2000px;
+        position: relative;
+        top: -175px;
+        width: 100%;
+      }
   }
 }
 

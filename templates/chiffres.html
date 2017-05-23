@@ -1,116 +1,134 @@
 <script>
-  var base_url = location_parts[0] + '//' + location_parts[1] + '/';
-  var fa_css = base_url + 'site/themes/erecolnat/css/font-awesome.min.css';
-
-  (function () {
-    console.log(fa_css);
-    var styles = '@import url(\'' + fa_css + '\');';
-    var newSS = document.createElement('link');
-    newSS.rel = 'stylesheet';
-    newSS.href = 'data:text/css,' + escape(styles);
-    document.getElementsByTagName('head')[0].appendChild(newSS);
-  })();
+var base_url = location_parts[0] + '//' + location_parts[1] + '/';
+var fa_css = base_url + 'site/themes/erecolnat/css/font-awesome.min.css';
+(function () {
+	console.log(fa_css);
+	var styles = '@import url(\'' + fa_css + '\');';
+	var newSS = document.createElement('link');
+	newSS.rel = 'stylesheet';
+	newSS.href = 'data:text/css,' + escape(styles);
+	document.getElementsByTagName('head')[0].appendChild(newSS);
+})();
 </script>
-
 <div class="chiffres page">
-    <h1>Les chiffres du programme Recolnat</h1>
-
-    <h2>Données du programme Recolnat</h2>
-
-    <table class="donnees">
-        <thead>
-        <tr>
-            <td></td>
-            <td><a href="https://explore.recolnat.org/search/botanique/type=index">Botanique</a></td>
-            <td><a href="https://explore.recolnat.org/search/zoologie/type=index">Zoologie</a></td>
-            <td><a href="https://explore.recolnat.org/search/paleeontologie/type=index">Paléontologie</a></td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Types</td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>
-        <tr>
-            <td>Spécimens</td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>
-        <tr>
-            <td>Images numérisées</td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <h2>Données de la science participative</h2>
-
-    <table class="bicolumn">
-        <thead></thead>
-        <tbody>
-        <tr>
-            <td>Missions <a href="http://lesherbonautes.mnhn.fr/">Les Herbonautes</a></td>
-            <td id="herbo-missions"><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>
-        <tr>
-            <td>Participations <a href="http://lesherbonautes.mnhn.fr/">Les Herbonautes</a></td>
-            <td id="herbo-participations"><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>
-        <tr>
-            <td>Spécimens traités par la science participative</td>
-            <td id="specimens-sc-part"><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>
-        <!--<tr>
-            <td>Sets du Colaboratoire</td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>-->
-        </tbody>
-    </table>
-
-    <h2>Le programme Recolnat</h2>
-
-    <table class="bicolumn">
-        <thead></thead>
-        <tbody>
-        <tr>
-            <td>Inscrit.e.s</td>
-            <td id="users"><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>
-        <tr>
-            <td>Institutions partenaires</td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>
-        <tr>
-            <td>Visites</td>
-            <td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-        </tr>
-        </tbody>
-    </table>
+	<h1>{{titre_principal}}</h1>
+	<!--
+	<table class="donnees">
+			<thead>
+					<tr>
+							<td></td>
+							<td><a href="https://explore.recolnat.org/search/botanique/type=index">Botanique</a></td>
+							<td><a href="https://explore.recolnat.org/search/zoologie/type=index">Zoologie</a></td>
+							<td><a href="https://explore.recolnat.org/search/paleeontologie/type=index">Paléontologie</a></td>
+					</tr>
+			</thead>
+			<tbody>
+					<tr>
+							<td>Types</td>
+							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+					</tr>
+					<tr>
+							<td>Spécimens informatisés</td>
+							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+					</tr>
+					<tr>
+							<td>Spécimens numérisés</td>
+							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+					</tr>
+			</tbody>
+	</table>
+	-->
+	<h2>{{sous_titre_infrastructure_recolnat}}</h2>
+	<table class="bicolumn">
+	<thead></thead>
+	<tbody>
+		<tr>
+			<td>{{champ_nombre_inscrits}}</td>
+			<td id="users"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+		</tr>
+		<tr>
+			<td>{{champ_institutions_partenaires}}</td>
+			<td id="institutions"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+		</tr>
+		<tr>
+			<td>{{champ_visites}}</td>
+			<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+		</tr>
+	</tbody>
+</table>
+<h2>{{sous_titre_infrastructure_recolnat}} (<a href="http://lesherbonautes.mnhn.fr/">Les Herbonautes</a>)</h2>
+<table class="bicolumn">
+<thead></thead>
+<tbody>
+	<tr>
+		<td>{{champ_herbonautes_missions}}</td>
+		<td id="herbo-missions"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+	</tr>
+	<tr>
+		<td>{{champ_herbonautes_participations}}</td>
+		<td id="herbo-participations"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+	</tr>
+	<tr>
+		<td>{{champ_herbonautes_specimens_science_participative}}</td>
+		<td id="specimens-sc-part"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+	</tr>
+	<tr>
+		<td>{{champ_herbonautes_specimens_valides}}</td>
+		<td id="specimens-valides"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+	</tr>
+	<tr>
+		<td>{{champ_herbonautes_nombres_participants}}</td>
+		<td id="contributeurs"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+	</tr>
+</tbody>
+</table>
+<h2>{{sous_titre_infrastructure_recolnat}} (<a href="https://explore.recolnat.org/statistiques">explore.recolnat.org</a>)</h2>
+<div class="explore-stats">
+<iframe src="https://explore.recolnat.org/statistiques"></iframe>
 </div>
-
+</div>
 <script>
-  $.ajax({
-    type: 'GET',
-    headers: {},
-    url: 'https://api.recolnat.org/erecolnat/v1/users/count',
-    success: function (data) {
-      document.getElementById('users').innerHTML = data;
-    }
-  });
-
-  $.ajax({
-    type: 'GET',
-    headers: {},
-    url: base_url + '/herbo-stats.json',
-    success: function (data) {
-      document.getElementById('herbo-missions').innerHTML = data.missions;
-      document.getElementById('specimens-sc-part').innerHTML = data.spécimens;
-      document.getElementById('herbo-participations').innerHTML = data.contributions;
-    }
-  });
+function makeInt(_) {
+	_ = parseInt(_);
+	if (isNaN(_)) return null;
+	return _.toLocaleString('de-DE').replace(/\./g, ' ');
+}
+$.ajax({
+	type: 'GET',
+	headers: {},
+	url: 'https://api.recolnat.org/erecolnat/v1/users/count',
+	success: function (data) {
+		document.getElementById('users').innerHTML = parseInt(data).toLocaleString('de-DE').replace(/\./g, ' ');;
+	}
+});
+$.ajax({
+	type: 'GET',
+	headers: {},
+	url: base_url + '/herbo-stats.json',
+	success: function (data) {
+		var missions = makeInt(data.missions);
+		var specimens = makeInt(data.spécimens);
+		var contributions = makeInt(data.contributions);
+		var contributeurs = makeInt(data.contributeurs);
+		var completeSpecimens = makeInt(data.completeSpecimens);
+		if (missions) document.getElementById('herbo-missions').innerHTML = missions;
+		if (specimens) document.getElementById('specimens-sc-part').innerHTML = specimens;
+		if (contributions) document.getElementById('herbo-participations').innerHTML = contributions;
+		if (contributeurs) document.getElementById('contributeurs').innerHTML = contributeurs;
+		if (completeSpecimens !== null) document.getElementById('specimens-valides').innerHTML = completeSpecimens;
+	}
+});
+$.ajax({
+	type: 'GET',
+	url: 'https://api.recolnat.org/erecolnat/v1/institutions/count',
+	success: function (data) {
+		document.getElementById('institutions').innerHTML = data;
+	}
+});
 </script>

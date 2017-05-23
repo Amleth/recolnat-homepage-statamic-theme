@@ -522,7 +522,7 @@ footer {
 #content {
   padding-top: 60px; }
 
-.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a, .chiffres table thead td:not(:first-child) a, .chiffres table tbody td a, .link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page ul a:hover, .chiffres table tbody td a:hover, .link-inverse, .link-inverse-hover {
+.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a, .chiffres h2 a, .chiffres table thead td:not(:first-child) a, .chiffres table tbody td a, .link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page ul a:hover, .chiffres table tbody td a:hover, .link-inverse, .link-inverse-hover {
   display: inline-block;
   font-family: 'Merriweather', serif;
   font-size: 14px;
@@ -532,7 +532,7 @@ footer {
   vertical-align: text-top;
   white-space: pre-wrap; }
 
-.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a, .chiffres table thead td:not(:first-child) a, .chiffres table tbody td a {
+.link, ul.link-list a, section.objectifs a, footer > section ul a, .page ul a, .chiffres h2 a, .chiffres table thead td:not(:first-child) a, .chiffres table tbody td a {
   color: #DD6754; }
 
 .link-hover, ul.link-list a:hover, section.objectifs a:hover, footer > section ul a:hover, .page ul a:hover, .chiffres table tbody td a:hover {
@@ -1047,7 +1047,15 @@ footer a.mailtocontact {
 .label ul {
   width: 50%; }
 
+.chiffres h2 a {
+  font-family: 'ikaros_sansregular', sans-serif;
+  font-size: 19px;
+  vertical-align: baseline; }
+  .chiffres h2 a:hover {
+    text-decoration: underline; }
+
 .chiffres table {
+  border: 2px solid black;
   margin-bottom: 3em; }
   .chiffres table thead td {
     border: none; }
@@ -1081,6 +1089,17 @@ footer a.mailtocontact {
 
 .chiffres table.bicolumn tbody td {
   width: 50%; }
+
+.chiffres .explore-stats {
+  border-top: 2px solid black;
+  overflow: hidden; }
+  .chiffres .explore-stats iframe {
+    border: none;
+    border-bottom: 2px solid black;
+    height: 2000px;
+    position: relative;
+    top: -175px;
+    width: 100%; }
 
 /*! http://responsiveslides.com v1.54 by @viljamis */
 .rslides {

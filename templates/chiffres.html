@@ -12,86 +12,56 @@ var fa_css = base_url + 'site/themes/erecolnat/css/font-awesome.min.css';
 </script>
 <div class="chiffres page">
 	<h1>{{titre_principal}}</h1>
-	<!--
-	<table class="donnees">
-			<thead>
-					<tr>
-							<td></td>
-							<td><a href="https://explore.recolnat.org/search/botanique/type=index">Botanique</a></td>
-							<td><a href="https://explore.recolnat.org/search/zoologie/type=index">Zoologie</a></td>
-							<td><a href="https://explore.recolnat.org/search/paleeontologie/type=index">Paléontologie</a></td>
-					</tr>
-			</thead>
-			<tbody>
-					<tr>
-							<td>Types</td>
-							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-					</tr>
-					<tr>
-							<td>Spécimens informatisés</td>
-							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-					</tr>
-					<tr>
-							<td>Spécimens numérisés</td>
-							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-							<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
-					</tr>
-			</tbody>
-	</table>
-	-->
 	<h2>{{sous_titre_infrastructure_recolnat}}</h2>
 	<table class="bicolumn">
-	<thead></thead>
-	<tbody>
+		<thead></thead>
+		<tbody>
+			<tr>
+				<td>{{champ_nombre_inscrits}}</td>
+				<td id="users"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+			</tr>
+			<tr>
+				<td>{{champ_institutions_partenaires}}</td>
+				<td id="institutions"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+			</tr>
+			<tr>
+				<td>{{champ_visites}}</td>
+				<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+			</tr>	
+			</tbody>
+		</table>
+	
+	<h2>{{sous_titre_donnees_science_participative}} (<a href="http://lesherbonautes.mnhn.fr/">Les Herbonautes</a>)</h2>
+	<table class="bicolumn">
+		<thead></thead>
+		<tbody>
 		<tr>
-			<td>{{champ_nombre_inscrits}}</td>
-			<td id="users"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+			<td>{{champ_herbonautes_missions}}</td>
+			<td id="herbo-missions"><i class="fa fa-cog fa-spin fa-fw"></i></td>
 		</tr>
 		<tr>
-			<td>{{champ_institutions_partenaires}}</td>
-			<td id="institutions"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+			<td>{{champ_herbonautes_participations}}</td>
+			<td id="herbo-participations"><i class="fa fa-cog fa-spin fa-fw"></i></td>
 		</tr>
 		<tr>
-			<td>{{champ_visites}}</td>
-			<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+			<td>{{champ_herbonautes_specimens_science_participative}}</td>
+			<td id="specimens-sc-part"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+		</tr>
+		<tr>
+			<td>{{champ_herbonautes_specimens_valides}}</td>
+			<td id="specimens-valides"><i class="fa fa-cog fa-spin fa-fw"></i></td>
+		</tr>
+		<tr>
+			<td>{{champ_herbonautes_nombres_participants}}</td>
+			<td id="contributeurs"><i class="fa fa-cog fa-spin fa-fw"></i></td>
 		</tr>
 	</tbody>
-</table>
-<h2>{{sous_titre_infrastructure_recolnat}} (<a href="http://lesherbonautes.mnhn.fr/">Les Herbonautes</a>)</h2>
-<table class="bicolumn">
-<thead></thead>
-<tbody>
-	<tr>
-		<td>{{champ_herbonautes_missions}}</td>
-		<td id="herbo-missions"><i class="fa fa-cog fa-spin fa-fw"></i></td>
-	</tr>
-	<tr>
-		<td>{{champ_herbonautes_participations}}</td>
-		<td id="herbo-participations"><i class="fa fa-cog fa-spin fa-fw"></i></td>
-	</tr>
-	<tr>
-		<td>{{champ_herbonautes_specimens_science_participative}}</td>
-		<td id="specimens-sc-part"><i class="fa fa-cog fa-spin fa-fw"></i></td>
-	</tr>
-	<tr>
-		<td>{{champ_herbonautes_specimens_valides}}</td>
-		<td id="specimens-valides"><i class="fa fa-cog fa-spin fa-fw"></i></td>
-	</tr>
-	<tr>
-		<td>{{champ_herbonautes_nombres_participants}}</td>
-		<td id="contributeurs"><i class="fa fa-cog fa-spin fa-fw"></i></td>
-	</tr>
-</tbody>
-</table>
-<h2>{{sous_titre_infrastructure_recolnat}} (<a href="https://explore.recolnat.org/statistiques">explore.recolnat.org</a>)</h2>
-<div class="explore-stats">
-<iframe src="https://explore.recolnat.org/statistiques"></iframe>
-</div>
+	</table>
+
+	<h2>{{sous_titre_donnees_numerisation_informatisation}} (<a href="https://explore.recolnat.org/statistiques">explore.recolnat.org</a>)</h2>
+	<div class="explore-stats">
+	<iframe src="https://explore.recolnat.org/statistiques"></iframe>
+	</div>
 </div>
 <script>
 function makeInt(_) {

@@ -562,8 +562,7 @@ html {
 table {
   border-collapse: collapse; }
   table th, table td {
-    border: 1px solid black;
-    line-height: 1.5; }
+    border: 1px solid black; }
   table th {
     background-color: black;
     color: white; }
@@ -1100,6 +1099,20 @@ footer a.mailtocontact {
     position: relative;
     top: -175px;
     width: 100%; }
+
+.publications table {
+  border: none; }
+
+.publications table tbody td {
+  border: solid 1px #ccc;
+  padding: 0.25em; }
+  .publications table tbody td:nth-child(2) {
+    text-align: left; }
+  .publications table tbody td a {
+    color: #DD6754;
+    text-decoration: none; }
+    .publications table tbody td a:hover {
+      text-decoration: underline; }
 
 /*! http://responsiveslides.com v1.54 by @viljamis */
 .rslides {

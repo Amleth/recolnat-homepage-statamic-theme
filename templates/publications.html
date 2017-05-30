@@ -1,0 +1,19 @@
+<main class="page publications">
+
+<h1>Liste des publications scientifiques</h1>
+
+{{ collection:publications as="p" paginate="false" }}
+<table>
+	<thead></thead>
+	<tbody>
+		{{ p }}
+		<tr>
+			<td>{{ year }}/{{ month }}</td>
+    		<td><a target="_blank" href="{{ lien }}">{{ title }}</a></td>
+		</tr>
+		{{ /p }}
+	</tbody>
+</table>
+{{ /collection:publications }}
+
+</main>

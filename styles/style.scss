@@ -213,7 +213,6 @@ table {
 
   th, td {
     border: 1px solid black;
-    line-height: 1.5;
   }
 
   th {
@@ -1037,6 +1036,30 @@ footer {
         top: -175px;
         width: 100%;
       }
+  }
+}
+
+.publications {
+  table {
+    border: none;
+  }
+
+  table tbody td {
+    border: solid 1px #ccc;
+    padding: 0.25em;
+
+    &:nth-child(2) {
+      text-align: left;
+    }
+
+    a {
+      color: $c-catchy-link;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 

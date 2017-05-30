@@ -15,53 +15,13 @@
     <meta name="description" content="Portail du projet e-ReColNat">
     <title>{{ title ensure_right=" / " }}{{ site_name }}</title>
     <script src="//code.jquery.com/jquery-1.12.3.min.js"></script>
-    <script src="{{ theme:js }}"></script>
     <link rel="stylesheet" href="{{ theme:css }}">
-    <link rel="stylesheet" href="site/themes/erecolnat/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/site/themes/erecolnat/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic' rel='stylesheet' type='text/css'>
+    <script src="{{ theme:js }}"></script>
 </head>
 
 <body>
-
-<!-- -->
-<!-- -->
-<!-- LANG MANAGEMENT -->
-<!-- -->
-<!-- -->
-
-<script>
-  var supported_langs = ['fr', 'en'];
-
-  var change_loc = function (lang) {
-    var location_parts = window.location.toString().split('/').filter(function (_) {
-      return _;
-    });
-    var lang_in_url = '';
-    if (supported_langs.indexOf(location_parts[2]) !== -1) {
-      lang_in_url = location_parts[2];
-      location_parts.splice(2, 1);
-    }
-
-    if (lang !== lang_in_url) {
-      location_parts.splice(2, 0, lang);
-      location_parts[0] += '//';
-      window.location = location_parts.join('/') + '/';
-    }
-  };
-
-  // Detect browser lang if there is no lang in the URL
-  var location_parts = window.location.toString().split('/').filter(function (_) {
-    return _;
-  });
-  var lang_in_url = '';
-  if (supported_langs.indexOf(location_parts[2]) !== -1) {
-    lang_in_url = location_parts[2];
-    location_parts.splice(2, 1);
-  }
-  if (!lang_in_url) {
-    change_loc(navigator.language.startsWith('fr') ? 'fr' : 'en');
-  }
-</script>
 
 <!-- -->
 <!-- -->
@@ -197,6 +157,5 @@
     $('#recolnatMenu').contents().find('li.button a').first().text(loggedIn ? 'Bienvenue, ' + user : 'Me connecter');
   }
 </script>
-
 </body>
 </html>

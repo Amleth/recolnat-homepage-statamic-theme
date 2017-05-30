@@ -7,6 +7,45 @@ k.find("a"),r=function(a){q.closest("li").removeClass(v).eq(a).addClass(v)};a.au
 a.pauseControls&&q.hover(function(){clearInterval(p)},function(){m()});if(a.nav){g="<a href='#' class='"+E+" prev'>"+a.prevText+"</a><a href='#' class='"+E+" next'>"+a.nextText+"</a>";l.navContainer?c(a.navContainer).append(g):f.after(g);var d=c("."+d+"_nav"),G=d.filter(".prev");d.bind("click",function(b){b.preventDefault();b=c("."+j);if(!b.queue("fx").length){var d=e.index(b);b=d-1;d=d+1<C?n+1:0;z(c(this)[0]===G[0]?b:d);if(a.pager||a.manualControls)r(c(this)[0]===G[0]?b:d);a.pauseControls||m()}});
 a.pauseControls&&d.hover(function(){clearInterval(p)},function(){m()})}}if("undefined"===typeof document.body.style.maxWidth&&l.maxwidth){var H=function(){f.css("width","100%");f.width()>u&&f.css("width",u)};H();c(I).bind("resize",function(){H()})}})}})(jQuery,this,0);
 
+var supported_langs = ['fr', 'en'];
+
+  var change_loc = function (lang) {
+    var location_parts = window.location.toString().split('/').filter(function (_) {
+      return _;
+    });
+    var lang_in_url = '';
+    if (supported_langs.indexOf(location_parts[2]) !== -1) {
+      lang_in_url = location_parts[2];
+      location_parts.splice(2, 1);
+    }
+
+    if (lang !== lang_in_url) {
+      location_parts.splice(2, 0, lang);
+      location_parts[0] += '//';
+      window.location = location_parts.join('/') + '/';
+    }
+  };
+
+  // Detect browser lang if there is no lang in the URL
+  var location_parts = window.location.toString().split('/').filter(function (_) {
+    return _;
+  });
+  var lang_in_url = '';
+  if (supported_langs.indexOf(location_parts[2]) !== -1) {
+    lang_in_url = location_parts[2];
+    location_parts.splice(2, 1);
+  }
+  if (!lang_in_url) {
+    change_loc(navigator.language.startsWith('fr') ? 'fr' : 'en');
+  }
+
+var base_url = location_parts[0] + '//' + location_parts[1] + '/';
+function makeInt(_) {
+  _ = parseInt(_);
+  if (isNaN(_)) return null;
+  return _.toLocaleString('de-DE').replace(/\./g, ' ');
+}
+
 $(function () {
   $('.rslides').responsiveSlides({
     auto: true,
@@ -19,7 +58,6 @@ $(function () {
     namespace: "centered-btns"
   });
 });
-
 /*!
  * JavaScript Cookie v2.1.3
  * https://github.com/js-cookie/js-cookie

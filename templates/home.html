@@ -10,7 +10,7 @@
             <p class="spotlight-subtitle">{{ label_users }}</p>
         </div>
         <div class="stat">
-            <p class="spotlight" id="nb-missions">...</p>
+            <p class="spotlight" id="herbo-missions">...</p>
             <p class="spotlight-subtitle">{{ label_missions }}</p>
         </div>
     </div>
@@ -133,9 +133,10 @@
   $.ajax({
     type: 'GET',
     headers: {},
-    url: 'missionsCount.txt',
+    url: '/herbo-stats.json',
     success: function (data) {
-      document.getElementById('nb-missions').innerHTML = data;
+      var missions = makeInt(data.missions);
+      if (missions) document.getElementById('herbo-missions').innerHTML = missions;
     }
   });
 

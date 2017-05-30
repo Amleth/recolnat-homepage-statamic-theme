@@ -1,17 +1,18 @@
 <main class="page">
+
 <h1>Liste des publications scientifiques</h1>
 
 {{ collection:publications as="p" limit="50" paginate="true" }}
 	<section>
 		<ul class="link-list orange">
 		{{ p }}
-	    	<li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
+	    	<li><a target="_blank" href="{{ lien }}">{{ title }}</a></li>
 		{{ /p }}
 		</ul>
 	</section>
 	{{ paginate }}
 		{{ auto_links }}        
 	{{ /paginate }}
-
 {{ /collection:publications }}
+
 </main>

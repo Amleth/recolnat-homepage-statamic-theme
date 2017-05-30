@@ -1,15 +1,3 @@
-<script>
-var base_url = location_parts[0] + '//' + location_parts[1] + '/';
-var fa_css = base_url + 'site/themes/erecolnat/css/font-awesome.min.css';
-(function () {
-	console.log(fa_css);
-	var styles = '@import url(\'' + fa_css + '\');';
-	var newSS = document.createElement('link');
-	newSS.rel = 'stylesheet';
-	newSS.href = 'data:text/css,' + escape(styles);
-	document.getElementsByTagName('head')[0].appendChild(newSS);
-})();
-</script>
 <div class="chiffres page">
 	<h1>{{titre_principal}}</h1>
 	<h2>{{sous_titre_infrastructure_recolnat}}</h2>
@@ -64,11 +52,6 @@ var fa_css = base_url + 'site/themes/erecolnat/css/font-awesome.min.css';
 	</div>
 </div>
 <script>
-function makeInt(_) {
-	_ = parseInt(_);
-	if (isNaN(_)) return null;
-	return _.toLocaleString('de-DE').replace(/\./g, ' ');
-}
 $.ajax({
 	type: 'GET',
 	headers: {},

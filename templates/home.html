@@ -35,12 +35,11 @@
     <h2>{{ titre_de_la_zone_actualites }}</h2>
     <ul class="news-list">
         {{ collection:news scope="news" limit="4" }}
-        <a href="/actualites#{{ title }}">
+        <a href="/actualites#{{ slug }}">
             <li class="news-post">
                 <span class="post-date">{{ date format="d-m-Y" }}</span>
                 <br>
                 <span class="post-title">{{ title }}</span>
-                <!-- <div class="post-summary"><a href="/actualites#{{ title }}">{{ content | safe_truncate:100:... }}</a></div> -->
             </li>
         </a>
         {{ /collection:news }}

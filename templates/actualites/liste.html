@@ -4,9 +4,9 @@
 {{ collection:news as="m" limit="5" paginate="true" }}
 	{{ m }}
 	<div class="post">
-		<a name="{{ title }}"></a>
 		<section>		
 			<h2>{{ title }} <span class="post-date">({{ date format="l j F Y" }})</span></h2>
+			<a name="{{ slug }}"></a>
 			{{ content }}
 		</section>
 	</div>

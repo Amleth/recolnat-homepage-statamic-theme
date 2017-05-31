@@ -76,11 +76,9 @@
         </ul>
         <div class="logos">
             {{ collection:membres scope="m" }}
-            {{ assets:logo }}
             <a href="{{ lien_vers_nos_membres }}#{{ title }}">
-                <img src="{{ url }}" alt="{{ m:title }}"/>
+                <img src="{{ logo }}" alt="{{ m:title }}"/>
             </a>
-            {{ /assets:logo }}
             {{ /collection:membres }}
         </div>
     </div>

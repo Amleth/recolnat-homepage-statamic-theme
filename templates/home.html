@@ -74,6 +74,9 @@
 	    {{ get_content from="/don" scope="don" }}
             <li><a href="{{ don:slug }}">{{ label_du_lien_faire_un_don }}</a></li>
             {{ /get_content }}
+            {{ get_content from="/label" scope="label" }}
+            <li><a href="{{ label:slug }}">{{label:title }}</a></li>
+            {{ /get_content }}
         </ul>
         <div class="logos">
             {{ collection:membres scope="m" }}
@@ -101,15 +104,15 @@
     <!-- <a href="{{ colhelper_lien }}"><h2>Demander un spécimen</h2></a> -->
 </section>
 <section id="section-9" class="publications_presse">
-    <a href="{{ footer_lien_vers_la_liste_des_publications_scientifiques }}"><h3>{{
-        footer_titre_de_la_liste_des_publications_scientifiques }}</h3></a>
-    <!-- <ul>
-    {{ collection:publications limit="2" }}    
-        <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
-    {{ /collection:publications }}
-    </ul> -->
-    <a href="{{ footer_lien_vers_la_liste_des_articles_de_presse }}"><h3>{{
-        footer_titre_de_la_liste_des_articles_de_presse }}</h3></a>
+    <a href="{{ footer_lien_vers_la_liste_des_publications_scientifiques }}">
+	<h3>{{ footer_titre_de_la_liste_des_publications_scientifiques }}</h3>
+    </a>
+    <a href="{{ footer_lien_vers_la_liste_des_articles_de_presse }}">
+	<h3>{{ footer_titre_de_la_liste_des_articles_de_presse }}</h3>
+    </a>
+    <a href="{{ conferences_page_lien }}">
+	<h3>{{ conferences_page_title }}</h3>
+    </a>
 </section>
 
 <div id="flags">

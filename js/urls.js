@@ -31,3 +31,4 @@ if (!lang_in_url) {
 }
 
 var base_url = location_parts[0] + '//' + location_parts[1] + '/';
+

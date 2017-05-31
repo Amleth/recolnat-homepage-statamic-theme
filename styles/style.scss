@@ -702,6 +702,7 @@ footer {
 
     h2, h3, h4 {
       font-size: $f-content-size;
+      word-break: break-all;
     }
 
     h3 {
@@ -758,17 +759,6 @@ footer {
         }
       }
     }
-  }
-
-  a.mailtocontact {
-    border: none !important;
-    color: black;
-    font-family: 'ikaros_sansregular', serif;
-    margin: 5em 1em 1em 1em;
-    padding: 0.5em 0 0 0;
-    text-align: center;
-    text-decoration: underline;
-    transition: background-color 0.5s ease;
   }
 }
 

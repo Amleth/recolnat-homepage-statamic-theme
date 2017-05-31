@@ -63,25 +63,24 @@
         </ul>
     </section>
     <section>
-        <a href="{{ footer_lien_vers_la_liste_des_collections }}"><h3>{{ footer_titre_de_la_liste_des_collections
-            }}</h3></a>
+        <a href="{{ footer_lien_vers_la_liste_des_collections }}">
+		<h3>{{ footer_titre_de_la_liste_des_collections }}</h3>
+	</a>
         <ul>
-            {{ collection:collections limit="5" }}
-            <li><a target="_blank" href="{{ url }}">{{ title }}</a></li>
+            {{ collection:collections scope="coll" }}
+            <li><a target="_blank" href="{{ coll:lien }}">{{ coll:title }}</a></li>
             {{ /collection:collections }}
         </ul>
     </section>
     <section>
-        <a href="{{ footer_lien_vers_le_rapport_dactivite }}"><h3>{{ footer_label_du_lien_vers_le_rapport_dactivite
-            }}</h3></a>
+        <a href="{{ footer_lien_vers_le_rapport_dactivite }}">
+		<h3>{{ footer_label_du_lien_vers_le_rapport_dactivite }}</h3>
+	</a>
     </section>
-    <section class="contact">
-        <h3>{{ titre_de_la_zone_contact }}</h3>
-        <ul>
-            <li><a href="{{ lien_vers_les_contributeurs }}">{{ label_du_lien_vers_les_contributeurs }}</a></li>
-            <li><a href="{{ lien_vers_les_questions }}">{{ label_du_lien_vers_les_questions }}</a></li>
-        </ul>
-        <a class="mailtocontact" href="mailto:{{ email_de_contact }}">{{ email_de_contact }}</a>
+    <section>
+        <a href="mailto:{{ email_de_contact }}">
+		<h3>{{ email_de_contact }}</h3>
+	</a>
     </section>
     {{ /get_content }}
 </footer>

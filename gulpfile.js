@@ -22,10 +22,10 @@ elixir(function (mix) {
   .copy("./fonts/ikaros/*.woff2", "css");
   mix.scripts([
       'js/responsiveslides.min.js',
-      'js/urls.js',
       'js/utils.js',
       'js/slides.js',
       '../node_modules/js-cookie/src/js.cookie.js',
+      'js/urls.js',
     ],
     './js/erecolnat.js'
   );

@@ -904,7 +904,8 @@ footer > section {
       padding-top: 3em;
       width: 100%; } }
   footer > section h2, footer > section h3, footer > section h4 {
-    font-size: 14px; }
+    font-size: 14px;
+    word-break: break-all; }
   footer > section h3 {
     margin: 0;
     padding: 1em; }
@@ -933,16 +934,6 @@ footer > section {
       color: white; }
       footer > section > a:hover * {
         color: white; }
-
-footer a.mailtocontact {
-  border: none !important;
-  color: black;
-  font-family: 'ikaros_sansregular', serif;
-  margin: 5em 1em 1em 1em;
-  padding: 0.5em 0 0 0;
-  text-align: center;
-  text-decoration: underline;
-  transition: background-color 0.5s ease; }
 
 .entete {
   background-position: center;

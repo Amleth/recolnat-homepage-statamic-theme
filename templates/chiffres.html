@@ -14,7 +14,7 @@
 			</tr>
 			<tr>
 				<td>{{champ_visites}}</td>
-				<td><i class="fa fa-cog fa-spin fa-fw"></i></td>
+				<td id="visites"><i class="fa fa-cog fa-spin fa-fw"></i></td>
 			</tr>	
 			</tbody>
 		</table>
@@ -58,6 +58,14 @@ $.ajax({
 	url: 'https://api.recolnat.org/erecolnat/v1/users/count',
 	success: function (data) {
 		document.getElementById('users').innerHTML = parseInt(data).toLocaleString('de-DE').replace(/\./g, ' ');;
+	}
+});
+$.ajax({
+	type: 'GET',
+	headers: {},
+	url: base_url + '/ga.json',
+	success: function (data) {
+		document.getElementById('visites').innerHTML = data.www_pageviews;
 	}
 });
 $.ajax({

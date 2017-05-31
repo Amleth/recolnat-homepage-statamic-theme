@@ -23,11 +23,9 @@
 <section id="section-2" class="explorer-les-collections rslides_container contains-v-centered-elements">
     <ul class="rslides">
         {{ collection:belles-images scope="bp" }}
-        {{ assets:picture }}
-        <li style="background-image: url('{{ url }}');">
+        <li style="background-image: url('{{ picture }}');">
             <a class="explore-content" href="{{ explore_lien }}">{{ bp:title }}</a>
         </li>
-        {{ /assets:picture }}
         {{ /collection:belles-images }}
     </ul>
 </section>

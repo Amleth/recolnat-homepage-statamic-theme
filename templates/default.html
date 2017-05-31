@@ -3,9 +3,11 @@
 {{ /assets:en_tete }}
 
 <article class="page">
+	{{ if logo }}
 	<a class="logo" href="{{ webpage }}">
   	<img src="{{ logo }}" alt="{{ title }}" />
 	</a>
+	{{ /if }}
 	
 	<h1>{{ title }}</h1>
 	

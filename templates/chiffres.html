@@ -65,7 +65,7 @@ $.ajax({
 	headers: {},
 	url: base_url + '/ga.json',
 	success: function (data) {
-		document.getElementById('visites').innerHTML = data.www_pageviews;
+		document.getElementById('visites').innerHTML = parseInt(data.www_pageviews) + parseInt(data.explore_pageviews);
 	}
 });
 $.ajax({
